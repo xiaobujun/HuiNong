@@ -1,0 +1,45 @@
+/* pages/takePhoto/takePhoto.wxss */
+.camera{
+  position: absolute;
+  z-index: 1;
+}
+.camera_bottom{
+  position: absolute;
+  z-index: 2;
+  top: 85%;
+  width: 100%;
+  height: 90px;
+
+}
+.photo{
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  width: 40px;
+  height: 40px;
+}
+.photo_icon{
+  width: 100%;
+  height: 100%;
+}
+.circle{
+  position: relative;
+  top:50%; 
+  left:50%; 
+  transform:translate(-50%,-50%);
+  width: 80px;
+  height: 80px;
+  border: aliceblue 3px solid;
+  border-radius:100% ;
+  text-align: center;
+}
+.button{
+  position:absolute; 
+  top:50%; 
+  left:50%; 
+  transform:translate(-50%,-50%);
+  width: 70px;
+  height: 70px;
+  background-color: aliceblue;
+  border-radius:100% ;
+}

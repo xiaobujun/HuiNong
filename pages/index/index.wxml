@@ -1,0 +1,13 @@
+<view class="container">
+<view class="camera_container">
+<image class="famera_icon" src="../icons/farmer.png"/>
+<view class="camera">
+
+<view class="icon_container">
+<i><image class="camera_icon" src="../icons/camera.png" bindtap="takePhotoIcon"/>
+</i>
+</view>
+<text>拍一拍，识虫害</text>
+</view>
+</view>
+</view>

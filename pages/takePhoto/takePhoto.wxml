@@ -1,0 +1,13 @@
+<view class="camera_container">
+  <!-- 相机组件 -->
+  <camera class="camera" device-position="back" binderror="error" style='width:{{width}}px;height:{{height}}px;'></camera>
+  <!-- 底部按钮 -->
+  <view class="camera_bottom">
+    <view class="photo" bindtap="photo">
+    <image class="photo_icon" src="../icons/photo.png" alt="从相册选择"/>
+    </view>
+    <view class="circle">
+      <view class="button" bindtap="takePhoto"></view>
+    </view>
+  </view>
+</view>
