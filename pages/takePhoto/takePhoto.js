@@ -86,7 +86,33 @@ Page({
      * 从相册选择
      */
     photo(){
-
+      var that=this;
+      wx.chooseMedia({
+        count:1,
+        mediaType:['image'],
+        sourceType:['album'],
+        sizeType:['original'],
+        success:(res)=>{
+          let url=res.tempFiles[0].tempFilePath
+          wx.setStorageSync("res_imgurl", url);
+          wx.getFileSystemManager().readFile({
+            filePath: url,
+            encoding: 'base64',
+            success:(res)=>{
+              let base64 = res.data;
+                that.getToken(base64);
+            },
+            fail:(res)=>{
+              console.log(res);
+              console.log('格式转换失败');
+            }
+          });
+          console.log(res.tempFiles);
+        },
+        fail:(res)=>{
+          console.log('wx.chooseMedia()调用失败');
+        }
+      })
     },
 
     /**

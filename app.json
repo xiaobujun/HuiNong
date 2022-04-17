@@ -1,8 +1,8 @@
 {
   "pages":[
+    "pages/test/test",
     "pages/index/index",
     "pages/takePhoto/takePhoto",
-    
     "pages/about/about",
     "pages/magicBox/magicBox"
     

@@ -1,0 +1,1 @@
+<view><button bindtap="test">点击</button></view>
