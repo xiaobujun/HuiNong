@@ -1,11 +1,10 @@
 {
   "pages":[
-    "pages/test/test",
     "pages/index/index",
     "pages/takePhoto/takePhoto",
     "pages/about/about",
-    "pages/magicBox/magicBox"
-    
+    "pages/magicBox/magicBox",
+    "pages/test/test"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -14,6 +13,7 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
+    "id": "tabBar",
     "color":"#594737",
     "selectedColor":"#2A8F1B",
     "list": [{
