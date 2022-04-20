@@ -36,8 +36,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
-    "useIsolateContext": false,
+    "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -45,11 +44,12 @@
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "wx67b724076cc78e34",
+  "appid": "wx32ea4ae5db9d1a06",
   "projectname": "HuiNong",
   "editorSetting": {
     "tabIndent": "insertSpaces",

@@ -65,6 +65,7 @@ i{
   flex: 1;
   width: 100%;
   height: 480rpx;
+  /* background: #444; */
 }
 
 /* 这个是 “广场讨论” 四个字的样式设置 */
@@ -82,7 +83,6 @@ i{
 .scrollView {
   width: 105%;
   height: 45vh;
-  /* background: #444; */
 }
 
 /* 这个是 讨论卡片 的样式设置 */
@@ -94,7 +94,7 @@ i{
   margin-top: 10rpx;
   margin-left: 37rpx;
   text-align: center;
-  border-radius:20px;
+  border-radius:25px;
   border: 1px solid #C0C0C0;
   margin-bottom: 15rpx;
   padding-bottom: 30rpx;
@@ -125,21 +125,21 @@ i{
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  width: 30%;
+  width: 40%;
   height: 80%;
   margin-top: 1%;
+  margin-left: 2%;
 }
 
 /* 这个是 用户名（即“长沙小农”） 的样式设置 */
 .userNickName {
+  font-size: 35rpx;
   font-weight: bold;
-  margin-left: 5%;
 }
 
 /* 这个是 发布时间 的样式设置 */
 .userReleaseDate {
   font-size: 25rpx;
-  margin-left: 5%;
 }
 
 /* 这个是卡片右上方显示的 农作物 的样式设置 */
@@ -261,10 +261,33 @@ i{
   text-overflow: ellipsis;
 }
 
+.noAnswers {
+  margin-top: 5%;
+  margin-left: 32%;
+  word-break:keep-all;
+  white-space:nowrap;
+  font-size: 27rpx;
+  color: #555;
+  /* width: 500rpx; */
+  /* background: #444; */
+}
+
 /* 这里是 更多回答信息 的样式设置 */
 .moreAnswerInfoView {
   color: #AEAAAA;
   font-size: 27rpx;
   margin-top: 5%;
   margin-left: 7%;
+}
+
+/* 最后的提示信息 */
+.endTips {
+  text-align: center;
+  font-size: 25rpx;
+  color: #AEAAAA;
+  line-height: 40rpx;
+  letter-spacing: 5rpx;
+  margin-top: 5%;
+  margin-right: 4%;
+  margin-bottom: 3%;
 }
