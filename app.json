@@ -7,11 +7,7 @@
     "pages/takePhoto/takePhoto",
     "pages/about/about",
     "pages/magicBox/magicBox",
-<<<<<<< HEAD
     "pages/result/index"
-=======
-    "pages/test/test"
->>>>>>> 0ae41295f5417aaaac69937a9a121646031b5097
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -20,7 +16,6 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
-    "id": "tabBar",
     "color":"#594737",
     "selectedColor":"#2A8F1B",
     "list": [{
