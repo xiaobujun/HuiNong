@@ -1,176 +1,87 @@
+import openCamera from "../../common/permissions/camera"
 Page({
-    data: {
-      width: 0,
-      height: 0,
-      gap: 0,
-    },
+  data: {
+    width: 0,
+    height: 0,
+    gap: 0,
+  },
 
-    /**
-     * 动态获取设备屏幕宽高
-     */
-    onLoad: function (options) {
-      console.log('拍照页面加载了');
-      var that = this;
-      that.ctx = wx.createCameraContext();
-      wx.getSystemInfo({
-        success(res) {
-          that.setData({
-            width: res.windowWidth,
-            height: res.windowHeight,
-            gap: 40
-          })
-        },
-      });
-      console.log(this.data.width + this.data.height);
-    },
-
-    /**
-     * 获取用户相机授权
-     */
-    onShow: function () {
-      wx.authorize({
-        scope: 'scope.camera',
-        success: function (res) {
-          console.log("获取权限成功")
-        },
-        fail: function (res) {
-          console.log("" + res);
-          wx.showModal({
-            title: '请求授权您的摄像头',
-            content: '如需正常使用此小程序功能，请您按确定并在设置页面授权用户信息',
-            confirmText: '确定',
-            success: res => {
-              if (res.confirm) {
-                wx.openSetting({
-                  success: function (res) {
-                    console.log('成功');
-                    console.log(res);
-                    if (res.authSetting['scope.camera']) {
-                      console.log('设置允许获取摄像头');
-                      wx.showToast({
-                        title: '授权成功',
-                        icon: 'success',
-                        duration: 1000
-                      });
-                    } else { //不允许
-                      wx.showToast({
-                        title: '授权失败',
-                        icon: 'none',
-                        duration: 1000
-                      });
-                      wx.navigateBack({
-                        delta: 1
-                      });
-                      console.log("获取权限失败");
-                    }
-                  }
-                });
-              } else {
-                console.log("获取权限失败");
-                wx.showToast({
-                  title: '授权失败',
-                  icon: 'none',
-                  duration: 1000
-                });
-                wx.navigateBack({
-                  delta: 1
-                });
-              }
-            },
-          })
-        }
-      })
-    },
-
-    /**
-     * 从相册选择
-     */
-    photo(){
-      var that=this;
-      wx.chooseMedia({
-        count:1,
-        mediaType:['image'],
-        sourceType:['album'],
-        sizeType:['original'],
-        success:(res)=>{
-          let url=res.tempFiles[0].tempFilePath
-          wx.setStorageSync("res_imgurl", url);
-          wx.getFileSystemManager().readFile({
-            filePath: url,
-            encoding: 'base64',
-            success:(res)=>{
-              let base64 = res.data;
-                that.getToken(base64);
-            },
-            fail:(res)=>{
-              console.log(res);
-              console.log('格式转换失败');
-            }
-          });
-          console.log(res.tempFiles);
-        },
-        fail:(res)=>{
-          console.log('wx.chooseMedia()调用失败');
-        }
-      })
-    },
-
-    /**
-     * 拍摄及格式转换
-     */
-    takePhoto: function () {
-      var that = this
-      that.ctx.takePhoto({
-          quality: 'high',
-          success: (res) => {
-            let url = res.tempImagePath
-            // 将图片转换为base64格式
-            wx.getFileSystemManager().readFile({
-              filePath: url,
-              encoding: 'base64',
-              success(res) {
-                //console.log('上传照片成功准备转码')
-                let base64 = res.data;
-                that.getToken(base64);
-              }
-            });
-          }
+  /**
+   * 动态获取设备屏幕宽高
+   */
+  onLoad: function (options) {
+    console.log('拍照页面加载了');
+    var that = this;
+    that.ctx = wx.createCameraContext();
+    wx.getSystemInfo({
+      success(res) {
+        that.setData({
+          width: res.windowWidth,
+          height: res.windowHeight,
+          gap: 40
         })
       },
+    });
+    console.log(this.data.width, this.data.height);
+  },
 
-    /**
-     * 调用百度API
-     */
-    getToken(base64) {
-      // 鉴权认证
-      wx.request({
-        url: 'https://aip.baidubce.com/oauth/2.0/token',
-        data: {
-          grant_type: 'client_credentials',
-          client_id: 'G1UAnOBAk3Qp3iqbQULIi50G',
-          client_secret: 'uXQxPYyfAI4ArralVcLKaue4VdSEBCBt',
-        },
-        success: (res) => {
-          let token = res.data.access_token;
-          console.log('调用成功' + res.data.access_token);
-          // 调用动物识别API
-          wx.request({
-            url: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/animal',
-            header: {
-              "Content-type": "application/x-www-form-urlencoded",
-            },
-            method: 'post',
-            data: {
-              image: base64,
-              access_token: token,
-              baike_num: 1
-            },
-            success: function (res) {
-              //console.log('识别成功跳转页面')
-              console.log(res.data.result); //控制台输出识别后得到的数据中的结果
-            }
-          });
-        }
-      })
-    }
-  })
+  /**
+   * 获取用户相机授权
+   */
+  onShow: function () {
+    openCamera()
+  },
+
+  /**
+   * 从相册选择
+   */
+
+  async photo() {
+    // 打开相册把选择的照片转换成base64
+    let albumToBase64 = require("../../common/transitionDate/fromAlbumToBase64")
+    // 获取access_token
+    let getAccessToken = require("../../common/optimset/easydlToken")
+    // 获取识别结果
+    let getResult = require("../../common/recognition/PlantViruses")
+
+    let base64 = await albumToBase64()
+    let access_token = await getAccessToken()
+    let results = await getResult(base64, access_token, 3)
+
+    wx.navigateTo({
+      url: '../result/index',
+      success: res => {
+        res.eventChannel.emit('getResults', {
+          results: results,
+          base64: base64
+        })
+      }
+    })
+    console.log("results", results)
+  },
+
+  /**
+   * 拍摄及格式转换
+   */
+  async takePhoto() {
+    let carmera = require("../../common/transitionDate/fromCameraToBase64")
+    let getAccessToken = require("../../common/optimset/easydlToken")
+    let getResult = require("../../common/recognition/PlantViruses")
+
+    let base64 = await carmera(this.ctx)
+    let access_token = await getAccessToken()
+    let results = await getResult(base64, access_token, 3)
+    console.log("base64", results)
+
+    wx.navigateTo({
+      url: '../result/index',
+      success: res => {
+        res.eventChannel.emit('getResults', {
+          results: results,
+          base64: base64
+        })
+      }
+    })
+  },
+
+})

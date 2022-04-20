@@ -1,11 +1,13 @@
 {
+  "//pages":[
+    "首页","获取信息","我的","百宝箱","结果"
+  ],
   "pages":[
-    "pages/test/test",
     "pages/index/index",
     "pages/takePhoto/takePhoto",
     "pages/about/about",
-    "pages/magicBox/magicBox"
-    
+    "pages/magicBox/magicBox",
+    "pages/result/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

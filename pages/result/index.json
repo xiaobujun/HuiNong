@@ -1,0 +1,7 @@
+{
+
+  "navigationBarTitleText": "识别结果",
+  "usingComponents": {
+    "i-card": "../../iView/dist/card/index"
+  }
+}
