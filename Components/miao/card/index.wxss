@@ -17,7 +17,8 @@
 
 .i-card-header {
   display: flex;
-  padding: 6px 16px;
+  padding: 6px 0;
+  margin-left: 16px;
   align-items: center
 }
 
@@ -35,14 +36,26 @@
   margin-right: auto;
   overflow: hidden;
   background-size: cover;
-  vertical-align: middle
+  vertical-align: middle;
+}
+
+.i-card-header-thumb-circle{
+  border-radius: 50%;
 }
 
 .i-card-header-title {
   display: inline-block;
   vertical-align: middle;
-  font-size: 14px;
-  color: #1c2438
+  margin-left: 3%;
+}
+
+i-card-header-content-title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.i-card-header-content-subtitl {
+  font-size: 12px;
 }
 
 .i-card-header-extra {

@@ -1,0 +1,14 @@
+<view class="m-qa">
+  <view class="m-qa-part" wx:if="{{model}}">
+    <image class="m-qa-img-size {{model==='答'?'m-qa-answer':''}}" src="{{model==='答'?'./img/question.png':'./img/answer.png'}}" mode="aspectFill"></image>
+    <view class="m-qa-img-text" >{{model}}</view>
+
+  </view>
+  <view class="{{model==='答'?'m-qa-answer-centent':''}}">
+    <view class="{{model==='答'?'m-qa-answer-info':''}}" wx:if="{{model==='答'}}">
+      <image class="m-qa-answer-img" mode="aspectFill" src="{{answer_img}}" />
+      <span class="m-qa-answer-name">{{answer}}</span>
+    </view>
+    <span class="m-qa-text {{model==='答'?'answerDescription':''}}">{{context}}</span>
+  </view>
+</view>

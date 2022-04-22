@@ -1,0 +1,16 @@
+.m-tag{
+  margin-left: auto;
+  width:110rpx;
+  height: 50rpx;
+  margin-top: 3%;
+  line-height: 50rpx;
+  right: 77rpx;
+  text-align:center;
+  padding-bottom: 9rpx;
+  padding-left: 10rpx;
+  font-weight: 600;
+  color: #fff;
+  background: #FF8146;
+  border: 1px solid #FF8146;
+  border-radius: 100rpx 0rpx 0rpx 100rpx;
+}

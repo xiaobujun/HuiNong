@@ -1,0 +1,64 @@
+.m-qa{
+  display: inline-flex;
+  margin-top: 3%;
+  margin-left: 7%
+}
+.m-qa-part{
+  display: flex;
+  flex-flow: column;
+}
+.m-qa-answer{
+  margin-top: 3%;
+}
+.m-qa-img-size{
+  width: 48rpx;
+  height: 48rpx;
+}
+.m-qa-img-text{
+  font-size: 27rpx;
+  font-weight: bold;
+  margin-top: -90%;
+  margin-left: 7%;
+}
+.m-qa-text{
+  margin-left: 3%;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.m-qa-answer-centent{
+  margin-top: 5%;
+}
+.m-qa-answer-info{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.m-qa-answer-img{
+  width: 85rpx;
+  height: 85rpx;
+  margin-top: -5%;
+  margin-left: 5%;
+  border: 2rpx solid #444;
+  border-radius: 50%;
+  background: #444;
+}
+.m-qa-answer-name{
+  font-size: 29rpx;
+  margin-top: -3%;
+  margin-left: 4%;
+}
+.m-qa-answer-text{
+  margin-top: 1%;
+  margin-left: 3%;
+  width: 89%;
+  font-size: 30rpx;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

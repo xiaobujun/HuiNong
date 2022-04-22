@@ -1,62 +1,43 @@
-<view class="container">
-	<view class="camera_container">
-		<image class="famera_icon" src="../icons/farmer.png" />
-		<view class="camera">
-			<view class="icon_container">
-				<i>
-					<image class="camera_icon" mode="aspectFill" src="../icons/camera.png" bindtap="takePhotoIcon" />
-				</i>
-			</view>
-			<view class="camera_text">拍一拍，识虫害</view>
-		</view>
-	</view>
-    <view class="piazzaContainer">
-        <view class="piazzaCommunication">广场讨论</view>
-        <view>
-            <scroll-view class="scrollView" scroll-y="true" style="height: calc(46vh - {{tabBarHeight}}rpx)">
-                <view>
-                    <!-- 注意: 每一张 广场讨论卡片 都是从 class 为 piazzaDiscussions 的 view 组件开始的  -->
-                    <!-- 注意: 要注意标签的闭合  -->
-                    <view class="piazzaDiscussions">
-                        <view class="userBasicInfo">
-                            <image class="piazzaAvatar" mode="aspectFill" src="http://i2.hdslb.com/bfs/face/8fc169c4fd7594cc7895694e6c3f0dc836d49b31.jpg" />
-                            <view class="userBasicInfoGroupPart">
-                                <span class="userNickName">长沙小农</span>
-                                <span class="userReleaseDate">昨天 17:20</span>
-                            </view>
-                            <span class="crops">辣椒</span>
-                        </view>
-                        <view class="QA">
-                            <view class="QAGroupPart">
-                                <image class="QABubble" src="../icons/questionBubble@3x.png" mode="aspectFill" />
-                                <span class="QAText">问</span>
-                            </view>
-                            <span class="QADescription">不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？</span>
-                        </view>
-                        <view class="userQuestionImgs">
-                            <image class="qImage" mode="aspectFill" src="http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png"/>
-                            <image class="qImage" mode="aspectFill" src="http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png"/>
-                            <image class="qImage" mode="aspectFill" src="http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png"/>
-                        </view>
-                        <view class="QA answerBT">
-                            <view class="QAGroupPart answerBT">
-                                <image class="QABubble" src="../icons/answerBubble@3x.png" mode="aspectFill" />
-                                <span class="QAText">答</span>
-                            </view>
-                            <view class="answer">
-                                <view class="answersBasicInfo">
-                                    <image class="answerAvatar" mode="aspectFill" src="http://i2.hdslb.com/bfs/face/c1bbee6d255f1e7fc434e9930f0f288c8b24293a.jpg" />
-                                    <span class="answerNickName">长沙作物专家</span>
-                                </view>
-                                <span class="QADescription answerDescription">叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年</span>
-                            </view>
-                        </view>
-                        <view class="moreAnswerInfoView">
-                            <span class="moreAnswerInfo">220 人看过, 共 12 条回答 >></span>
-                        </view>
-                    </view>
-                </view>   
-            </scroll-view>
+<view>
+    <view class="camera_container" animation="{{drawerAnimation}}" hidden="{{cameraContainerIsShow}}">
+        <image class="famera_icon" src="../icons/farmer.png" />
+        <view class="camera">
+            <view class="icon_container">
+                <i>
+                    <image class="camera_icon" mode="aspectFill" src="../icons/camera.png" bindtap="takePhotoIcon" />
+                </i>
+            </view>
+            <view class="camera_text">拍一拍，识虫害</view>
         </view>
     </view>
+    <scroll-view id="piazzaScroll" class="scrollView" scroll-y="true" style="height: calc({{scrollViewHeight}}vh - {{tabBarHeight}}rpx);" bindscroll="piazzaScrollMoving">
+        <view wx:for="{{piazzaContent}}" wx:for-index="subId" wx:for-item="info" wx:key="id">
+            <m-card thumb="{{info.uBasicInfo.avatarImgSrc}}" title="{{info.uBasicInfo.nickName}}" subtitle="{{info.uBasicInfo.releaseDate}}" circle="true">
+                <view slot="extra">
+                    <m-category-tag tag="辣椒" />
+                </view>
+                <view slot="content">
+                    <m-qa-tag model="{{info.question.qText}}" context="{{info.question.qDescription}}" />
+
+                    <i-grid>
+                        <span wx:for="{{info.question.qImgs}}" wx:for-index="subId" wx:for-item="img" wx:key="src">
+                            <i-grid-item>
+                                <image class="qImage" src="{{img.src}}" mode="aspectFill" />
+                            </i-grid-item>
+                        </span>
+                    </i-grid>
+                    <view class="answer" wx:if="{{info.totalAnswer != 0}}">
+                        <m-qa-tag model="{{info.answer.aText}}" answer_img="{{info.answer.aAvatarImgSrc}}" answer="{{info.answer.answerNickName}}" context="{{info.answer.aDescription}}" />
+                    </view>
+                </view>
+                <view slot="footer">
+                    <view class="moreAnswerInfoView">
+                        <span class="moreAnswerInfo">{{info.totalView}} 人看过, 共 {{info.totalAnswer}} 条回答 >></span>
+                    </view>
+                </view>
+            </m-card>
+        </view>
+        <view class="endTips">{{endTips}}</view> <!-- 是到卡片最底下的文字了 -->
+    </scroll-view>
+   
 </view>

@@ -1,1 +1,11 @@
-/* pages/result/index.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: chartreuse;
+}
+.result_pages{
+  margin: 0 20rpx;
+}
+.result_info_simple{
+  width: 100%;
+}

@@ -202,7 +202,6 @@ i{
   margin-top: 4%;
   /* background: #444; */
 }
-
 /* 这个是 每个问题图片 的样式设置 */
 .qImage {
   width: 180rpx;
@@ -220,7 +219,7 @@ i{
 
 /* 重设样式 */
 .answer {
-  margin-top: 5%;
+  margin-top: 1%;
 }
 
 /* 这里是 答主头像 + 答主昵称 组合的样式设置 */

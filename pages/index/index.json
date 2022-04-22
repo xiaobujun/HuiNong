@@ -1,4 +1,13 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "m-card":"../../Components/miao/card/index",
+    "m-category-tag":"../../../Components/miao/category-tag/index",
+    "m-qa-tag":"../../../Components/miao/QAtag/index",
+    "i-grid": "../../iView/dist/grid/index",
+    "i-grid-item": "../../iView/dist/grid-item/index",
+    "i-grid-icon": "../../iView/dist/grid-icon/index",
+    "i-grid-label": "../../iView/dist/grid-label/index"
+    
+  },
   "disableScroll": true
 }
