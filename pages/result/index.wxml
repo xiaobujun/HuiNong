@@ -8,13 +8,46 @@
   <!-- 简介 -->
   <view class="result_info_simple">
     <view>识别结果</view>
-    <swiper indicator-dots="true" style="background-color: aqua;">
-      <view wx:for="{{results}}" wx:for-item="item">
-        <swiper-item>
-          <i-card title="{{item.name}}" extra="{{item.score}}" i-class="card_style" class="xxx">
-          </i-card>
-        </swiper-item>
+
+    <scroll-view scroll-x="true" style="height: 200px; background-color: blue; ">
+      <view >
+        <view wx:for="{{results}}" wx:for-item="item"  style="display: flex;">
+          <m-card title="{{item.name}}" i-class="card_style" data-plant="{{item.name}}" bindtap="plantsInfo" >
+            <view slot="extra">
+              <m-tag tag="概率极大"></m-tag>
+            </view>
+            <view slot="content" style="display: flex; overflow: hidden; height: 200rpx;">
+              <image src="https://www.zhifure.com/upload/images/2018/1/9151530570.jpg" mode="widthFix" style="  width: 188rpx; height: 200rpx;" ></image>
+              <text style="flex: 1; margin-left: 1%; height: 100%; overflow: hidden;text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5;">英文：Black Hole）是现代广义相对论中，存在于宇宙空间中的一种天体。 黑洞的引力极其强大，使得。</text>
+            </view>
+            <view slot="footer">
+              >>详情
+            </view>
+          </m-card>
+          <m-card title="{{item.name}}" i-class="card_style">
+            <view slot="extra">
+              <m-tag tag="概率极大"></m-tag>
+            </view>
+            <view slot="content" style="display: flex;">
+              <image src="http://vcdnb.huoying666.com/images/20190224/a28a4f085e4119f29a4c3389c7ea037d/a28a4f085e.jpg_home-image-640" mode="heightFix" style="height: 150rpx; width: 100rpx; background-color: lightcoral;" />
+              <text >英文：Black Hole）是现代广义相对论中，存在于宇宙空间中的一种天体。 黑洞的引力极其强大，使得。</text>
+            </view>
+          </m-card>
+          <m-card title="{{item.name}}" i-class="card_style">
+            <view slot="extra">
+              <m-tag tag="概率极大"></m-tag>
+            </view>
+            <view slot="content">
+              <image src="http://vcdnb.huoying666.com/images/20190224/a28a4f085e4119f29a4c3389c7ea037d/a28a4f085e.jpg_home-image-640" mode="heightFix" style="height: 150rpx; width: 100rpx;"></image>
+            </view>
+          </m-card>
+          <m-card title="{{item.name}}" i-class="card_style">
+            <view slot="extra">
+              <m-tag tag="概率极大"></m-tag>
+            </view>
+          </m-card>
+        </view>
       </view>
-    </swiper>
+    </scroll-view>
   </view>
 </view>
