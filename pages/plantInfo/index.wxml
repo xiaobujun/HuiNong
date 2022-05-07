@@ -1,0 +1,4 @@
+<view>{{plant.name}}</view>
+<view>{{plant.alias}}</view>
+<view>{{plant.features}}</view>
+<view>{{plant.treatment}}</view>

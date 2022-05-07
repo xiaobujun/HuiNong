@@ -9,3 +9,8 @@ page{
 .result_info_simple{
   width: 100%;
 }
+.card_style{
+  width: 500rpx;
+  display: flex;
+  flex-wrap: wrap;
+}

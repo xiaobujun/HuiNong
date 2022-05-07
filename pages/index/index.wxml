@@ -39,5 +39,5 @@
         </view>
         <view class="endTips">{{endTips}}</view> <!-- 是到卡片最底下的文字了 -->
     </scroll-view>
-   
+
 </view>

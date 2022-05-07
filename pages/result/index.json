@@ -2,6 +2,8 @@
 
   "navigationBarTitleText": "识别结果",
   "usingComponents": {
-    "i-card": "../../iView/dist/card/index"
+    "i-card": "../../iView/dist/card/index",
+    "m-card":"../../Components/miao/card/index",
+    "m-tag":"../../Components/miao/category-tag/index"
   }
 }

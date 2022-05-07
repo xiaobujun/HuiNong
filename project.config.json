@@ -48,6 +48,7 @@
     "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
+  "cloudfunctionRoot": "cloudfunctions/",
   "libVersion": "2.19.4",
   "appid": "wx67b724076cc78e34",
   "projectname": "HuiNong",
@@ -55,5 +56,6 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {}
 }

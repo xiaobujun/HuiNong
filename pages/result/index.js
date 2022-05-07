@@ -1,11 +1,17 @@
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {},
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  plantsInfo(e){
+    let plant = e.currentTarget.dataset.plant
+    console.log("plantsInfo",)
+    wx.navigateTo({
+      url: '../plantInfo/index',
+      success: res => {
+        res.eventChannel.emit('plantInfo',{
+          plant:plant
+        })
+      }
+    })
+  },
   onLoad: function (options) {
     let that = this
     let eventResults = this.getOpenerEventChannel();
@@ -29,7 +35,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
