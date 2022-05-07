@@ -1,0 +1,24 @@
+<!-- 裁剪部分 -->
+<view class="canvans_container">
+<canvas type="2d" id="canvas" style="width: {{width}}px;height: {{height}}px;" class="canvas_style">
+  <movable-area class="movable_area" style="width: {{width}}px;height: {{height}}px;" scale-area="true">
+    <!-- 图片 -->
+    <view class="image_container" style="width: {{width}}px;height: {{height}}px;">
+      <image class="image" src="{{photoPath}}" />
+    </view>
+    <!-- 取景框 -->
+    <movable-view class="movable_view" out-of-bounds="true" scale-min="0.5" damping='40' bindscale="scale" bindchange="move" style="height: {{height-300}}px;" scale="true" direction="all">
+      <!-- 四个角 -->
+      <view class="b l-t"></view>
+      <view class="b r-t"></view>
+      <view class="b l-b"></view>
+      <view class="b r-b"></view>
+    </movable-view>
+  </movable-area>
+</canvas>
+</view>
+<!-- 按钮部分 -->
+<view class="button">
+  <view class="sure" bindtap="sure">确定</view>
+  <view class="cancel" bindtap="cancel">取消</view>
+</view>

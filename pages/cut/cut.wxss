@@ -1,0 +1,96 @@
+/* pages/cut/cut.wxss */
+.canvas_style{
+  position: absolute;
+  z-index: 1;
+  background-color: aqua;
+}
+
+.movable_area{
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rosybrown;
+}
+
+.image_container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index:3 ;
+  background-color: greenyellow;
+}
+.image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* 裁剪框样式 */
+.movable_view{
+  position: absolute;
+  z-index: 4;
+  top: 20%;
+  /* 居中 */
+  left: 5%;
+  width: 90%;
+  border: 1px solid gray;
+  box-shadow: 0 0 0 500px rgba(0, 0, 0, .6);
+}
+
+/* 四个白角 */
+.b {
+  position: absolute;
+  z-index: 4;
+  border: 2px solid white;
+  height: 20rpx;
+  width: 20rpx;
+ 
+}
+
+.l-t {
+  border-right: transparent;
+  border-bottom: transparent;
+  top: 0;
+  left: 0;
+}
+
+.r-t {
+  border-left: transparent;
+  border-bottom: transparent;
+  right: 0;
+  top: 0;
+}
+
+.l-b {
+  border-right: transparent;
+  border-top: transparent;
+  left: 0;
+  bottom: 0;
+}
+
+.r-b {
+  border-left: transparent;
+  border-top: transparent;
+  right: 0;
+  bottom: 0;
+}
+.button{
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: aqua;
+  text-align: center;
+}
+.sure{
+  width: 50%;
+  float: left;
+
+}
+.cancel{
+  width: 50%;
+  float: right;
+}

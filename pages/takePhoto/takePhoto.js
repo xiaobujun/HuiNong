@@ -3,7 +3,6 @@ Page({
   data: {
     width: 0,
     height: 0,
-    gap: 0,
   },
 
   /**
@@ -18,7 +17,6 @@ Page({
         that.setData({
           width: res.windowWidth,
           height: res.windowHeight,
-          gap: 40
         })
       },
     });
@@ -61,7 +59,7 @@ Page({
   },
 
   /**
-   * 拍摄及格式转换
+   * 拍摄
    */
   async takePhoto() {
     let carmera = require("../../common/transitionDate/fromCameraToBase64")
