@@ -47,7 +47,7 @@ Page({
     let results = await getResult(base64, access_token, 3)
 
     wx.navigateTo({
-      url: '../result/index',
+      url: '../result/result',
       success: res => {
         res.eventChannel.emit('getResults', {
           results: results,
@@ -81,5 +81,4 @@ Page({
       }
     })
   },
-
 })

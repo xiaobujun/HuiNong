@@ -1,0 +1,33 @@
+<view class="drug_container">
+  <!-- 搜索框 -->
+  <view class="search_container">
+    <input type="text" placeholder="搜点什么吧~" />
+    <image src="../icons/search.png"></image>
+    <view class="button">搜索</view>
+  </view>
+  <!-- 条件栏 -->
+  <view class="options_container" bindtap="close">
+    <view class="select-wrap">
+      <select class="select" options="{{options}}" key="city_id" text="city_name" bind:change="change"></select>
+    </view>
+  </view>
+  <!-- 药品栏 -->
+  <scroll-view class="shop_container" scroll-y="true">
+    <view class="drug_row_container">
+      <view class="drug">
+        <view class="image_container">
+          <image src="../icons/农药.jpg"></image>
+        </view>
+        <text>药名</text>
+        <text>20￥</text>
+      </view>
+      <view class="drug">
+        <view class="image_container">
+          <image src="../icons/农药.jpg"></image>
+        </view>
+        <text>药名</text>
+        <text>20￥</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

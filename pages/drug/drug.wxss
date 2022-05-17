@@ -1,0 +1,76 @@
+/**
+  *条件栏
+  */
+
+.options_container{
+  width: 90%;
+  margin: 0 5%;
+  /* background-color: yellowgreen; */
+}
+
+  /* 下拉框 */
+.select-wrap {
+  width: 200rpx;
+}
+
+.selected {
+  margin-top: 50%;
+}
+
+/**
+  *药品展示部分
+  */
+
+  /* 滑动容器 */
+.shop_container{
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  height: 1020rpx;
+  margin: 0 auto;
+  border: 1px solid #BBBBBB;
+  border-radius:20rpx ;
+  overflow: hidden;
+}
+/* 行容器 */
+.drug_row_container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 360rpx;
+}
+/* 单个容器 */
+.drug{
+  display: inline-block;
+  width: 47%;
+  height: 300rpx;
+  margin: 20rpx auto;
+  border-radius: 28rpx;
+  border: 1px solid #BBBBBB;
+  text-align: center;
+}
+.image_container{
+  width: 260rpx;
+  height: 196rpx;
+  border-radius: 30rpx;
+  margin: 34rpx auto 10rpx;
+  overflow: hidden;
+  background-color: #BBBBBB;
+}
+.drug image{
+  display: block;
+  width: 204rpx;
+  height: 156rpx;
+  margin: 20rpx auto;
+  border-radius: 30rpx;
+}
+text{
+  display:inline-block;
+  margin:0 40rpx;
+}
+.drug_row_container .drug text:nth-child(2){
+  color: black;
+}
+.drug_row_container .drug text:nth-child(3){
+  color: #FF8146;
+}

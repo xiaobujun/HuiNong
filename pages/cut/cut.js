@@ -1,185 +1,235 @@
-// pages/cut/cut.js
+//获取应用实例
+const app = getApp()
 Page({
-  data: {
-    width:0, // 可用窗口宽
-    height:0, // 可用窗口高
-    photoPath:'', // 图片路径
-    // x,y为截取框的偏移量
-    x:0, 
-    y:0,
-    scale:0, // 缩放比率
-    // 裁剪框大小
-    cutWidth:0,
-    cutHeight:0,
-    canvas:null,
-    ctx:null
-  },
-
-  /**
-   * 获取图片截取所需要的参数
-   * @param {takePhoto传过来的照片路径} options 
-   */
-  onLoad: function (options) {
-    var that = this
-    // 获取相片路径
-    that.path = options.path
-    this.setData({
-      photoPath:this.path
-    })
-    // 动态获取可用窗口宽高来调整图片大小
-    wx.getSystemInfo({
-      success(res) {
-        that.setData({
-          width: res.windowWidth,
-          height: res.windowHeight-140,
-        })  
-      },
-    });
-
-    // 获取canvans实例，并传给init()
-    wx.createSelectorQuery()
-    .select('#canvas')
-    .fields({
-      id:true,
-      node: true,
-      size: true
-    })
-    .exec(this.init.bind(this))
-    console.log(this.data.width, this.data.height,this.data.photoPath);
-  },
-
-  /**
-   * 动态获取裁剪内容
-   */
-  move:function(e){             // 捕捉移动变化
-    var xOffseted=e.detail.x;
-    var yOffseted=e.detail.y;
-    console.log(xOffseted,yOffseted)
-    this.setData({
-      x:xOffseted,
-      y:yOffseted
-    })
-    console.log(this.data.x,this.data.y)
-  },
-
-  scale:function(e){            // 捕捉缩放变化
-    var xOffseted=e.detail.x;
-    var yOffseted=e.detail.y;
-    var scaled=e.detail.scale;
-    console.log(xOffseted,yOffseted,scaled)
-    this.setData({
-      x:xOffseted,
-      y:yOffseted,
-      scale:scaled
-    })
-  },
-
-  /**
-   * 画布初始化
-   */
-  init:function(res){
-    var that=this
-    console.log(res)
-    const canvas = res[0].node
-    const ctx = canvas.getContext('2d')
-      //新接口需显示设置画布宽高，宽高同照片一致；
-      canvas.width = this.data.width
-      canvas.height =this.data.height
-    this.setData({
-          canvas,
-          ctx
-    });
-    // 向画布载入图片的方法
-    // that.canvasDraw(); 
-    console.log('ctx',this.data.ctx)
-  },
-  canvasDraw() {
-    let img = this.data.canvas.createImage(); // 创建img对象
-    img.src = this.data.photoPath;
-    let x=this.data.x
-    let width=this.data.width
-    let height=this.data.height
-    
-    img.onload = () => {
-         // img.complete表示图片是否加载完成，结果返回true和false;
-          console.log('内部'+img.complete);//true
-          this.data.ctx.drawImage(img, x, y, width, height);
-    }
-    console.log('外部'+img.complete);//false
-  },
-
-  /**
-   * 确定截取
-   */
-  sure() {
-  let that = this
-  that.canvasDraw()
-  draw(false)
-  var canvas=this.data.canvas
-    this.data.ctx.draw(false,wx.canvasToTempFilePath({
-    canvas: canvas,
-    canvasId: 'canvas',
-    destHeight: this.data.height,  // 输出高
-    destWidth: this.data.width,        // 输出宽
-    fileType: 'jpg',
-    // height: this.data.height-300,      // 画布高，默认为canvs高-y
-    quality: 1,
-    // width: this.data.width,            // 画布宽
-    x: this.data.width*0.05+this.data.x,   // 画布的x轴
-    y: this.data.height*0.2+this.data.y,    // 画布的y轴
-    success: (res) => {
-      console.log(res,'截取成功')
-      wx.saveImageToPhotosAlbum({
-        filePath: res.tempFilePath,
-        success(e) {
-          wx.showToast({
-            title: '保存成功',
-            icon: 'none',
-            duration: 2000
-          })
-        },
-        fail(e) {
-          wx.getSetting({
-            success(res) {
-              if (!res.authSetting["scope.writePhotosAlbum"]) {
-                wx.showModal({
-                  title: '警告',
-                  content: '请打开相册权限，否则无法保存图片到相册',
-                  success(res) {
-                    if (res.confirm) {
-                      wx.openSetting({
-                        success(res) {
-                          console.log(res)
-                        }
-                      })
-                    } else if (res.cancel) {
-                      wx.showToast({
-                        title: '取消授权',
-                        icon: "none",
-                        duration: 2000
-                      })
-                    }
-                  }
-                })
-              }
+    data: {
+        src: '',
+        width: 250, //宽度
+        height: 250, //高度
+        max_width: 300,
+        max_height: 300,
+        disable_rotate: true, //是否禁用旋转
+        disable_ratio: false, //锁定比例
+        limit_move: true, //是否限制移动
+        bottom_flag:true
+    },
+    onLoad: function (options) {
+            this.cropper = this.selectComponent("#image-cropper");
+            this.setData({
+                src: options.path
+            });
+            if(!options.imgSrc){
+                this.cropper.upload(); //上传图片
             }
-          })
-        }
+        },
+        cropperload(e) {
+            console.log('cropper加载完成');
+        },
+        loadimage(e) {
+            wx.hideLoading();
+            console.log('图片');
+            this.cropper.imgReset();
+        },
+        clickcut(e) {
+            console.log(e.detail);
+            //图片预览
+            wx.previewImage({
+                current: e.detail.url, // 当前显示图片的http链接
+                urls: [e.detail.url] // 需要预览的图片http链接列表
+            })
+        },
+        upload() {
+            let that = this;
+            wx.chooseImage({
+                count: 1,
+                sizeType: ['original', 'compressed'],
+                sourceType: ['album', 'camera'],
+                success(res) {
+                    wx.showLoading({
+                        title: '加载中',
+                    })
+                    const tempFilePaths = res.tempFilePaths[0];
+                    //重置图片角度、缩放、位置
+                    that.cropper.imgReset();
+                    that.setData({
+                        src: tempFilePaths
+                    });
+                }
+            })
+        },
+        setWidth(e) {
+            this.setData({
+                width: e.detail.value < 10 ? 10 : e.detail.value
+            });
+            this.setData({
+                cut_left: this.cropper.data.cut_left
+            });
+        },
+        setHeight(e) {
+            this.setData({
+                height: e.detail.value < 10 ? 10 : e.detail.value
+            });
+            this.setData({
+                cut_top: this.cropper.data.cut_top
+            });
+        },
+        switchChangeDisableRatio(e) {
+            //设置宽度之后使剪裁框居中
+            this.setData({
+                disable_ratio: e.detail.value
+            });
+        },
+        setCutTop(e) {
+            this.setData({
+                cut_top: e.detail.value
+            });
+            this.setData({
+                cut_top: this.cropper.data.cut_top
+            });
+        },
+        setCutLeft(e) {
+            this.setData({
+                cut_left: e.detail.value
+            });
+            this.setData({
+                cut_left: this.cropper.data.cut_left
+            });
+        },
+        switchChangeDisableRotate(e) {
+            //开启旋转的同时不限制移动
+            if (!e.detail.value) {
+                this.setData({
+                    limit_move: false,
+                    disable_rotate: e.detail.value
+                });
+            } else {
+                this.setData({
+                    disable_rotate: e.detail.value
+                });
+            }
+        },
+        switchChangeLimitMove(e) {
+            //限制移动的同时锁定旋转
+            if (e.detail.value) {
+                this.setData({
+                    disable_rotate: true
+                });
+            }
+            this.cropper.setLimitMove(e.detail.value);
+        },
+        switchChangeDisableWidth(e) {
+            this.setData({
+                disable_width: e.detail.value
+            });
+        },
+        switchChangeDisableHeight(e) {
+            this.setData({
+                disable_height: e.detail.value
+            });
+        },
+        submit() {
+            this.cropper.getImg((obj) => {
+                app.globalData.imgSrc = obj.url;
+                wx.navigateBack({
+                    delta: -1
+                })
+            });
+        },
+        rotate() {
+            //旋转90°
+            this.cropper.setAngle(this.cropper.data.angle += 90);
+        },
+        top() {
+            this.data.top = setInterval(() => {
+                this.cropper.setTransform({
+                    y: -3
+                });
+            }, 1000 / 60)
+        },
+        bottom() {
+            this.data.bottom = setInterval(() => {
+                this.cropper.setTransform({
+                    y: 3
+                });
+            }, 1000 / 60)
+        },
+        left() {
+            this.data.left = setInterval(() => {
+                this.cropper.setTransform({
+                    x: -3
+                });
+            }, 1000 / 60)
+        },
+        right() {
+            this.data.right = setInterval(() => {
+                this.cropper.setTransform({
+                    x: 3
+                });
+            }, 1000 / 60)
+        },
+        narrow() {
+            this.data.narrow = setInterval(() => {
+                this.cropper.setTransform({
+                    scale: -0.02
+                });
+            }, 1000 / 60)
+        },
+        enlarge() {
+            this.data.enlarge = setInterval(() => {
+                this.cropper.setTransform({
+                    scale: 0.02
+                });
+            }, 1000 / 60)
+        },
+        end(e) {
+            clearInterval(this.data[e.currentTarget.dataset.type]);
+        },
+         //点击显示底部弹框
+  clickme: function () {
+    this.showModal();
+  },
+
+  //弹框动画
+  showModal: function () {
+    // 显示遮罩
+    var animation = wx.createAnimation({
+      duration: 400,
+      timingFunction: "ease",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(300).step()
+    this.setData({
+      animationData: animation.export(),
+      showModalStatus: true,
+      bottom_flag:false
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export()
       })
-    },
-    fail: (res) => {
-      console.log(res,'截取失败')
-    },
-  }, this))
- },
-
- /**
-  * 取消
-  */
- cancel(){
-   wx.navigateBack({
-     delta: 1,
-   })
- }
-
+    }.bind(this), 200)
+  },
+  //隐藏弹框
+  hideModal: function () {
+    // 隐藏遮罩
+    var animation = wx.createAnimation({
+      duration: 400,
+      timingFunction: "ease",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(300).step()
+    this.setData({
+      animationData: animation.export(),
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export(),
+        showModalStatus: false,
+        bottom_flag:true
+      })
+    }.bind(this), 200)
+  }
 })
