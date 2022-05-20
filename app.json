@@ -1,14 +1,17 @@
 {
   "pages":[
-    "pages/magicBox/magicBox",
     "pages/drug/drug",
+    "pages/cut/cut",
+    
+    
+    "pages/index/index",
+    
+    "pages/magicBox/magicBox",
     "pages/about/about",
     "pages/test1/demo",
-    "pages/cut/cut",
     "pages/test1/dd",
     "pages/takePhoto/takePhoto",
     "pages/test/test",
-    "pages/index/index",
     "pages/result/result"
   ],
   "window":{

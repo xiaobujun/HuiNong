@@ -88,14 +88,24 @@ ul li{
   border-radius:18rpx ;
   text-align: center;
   background-color: rgba(242, 242, 242, 1);
+  transition: .5s;
 }
+
+ul li:active{
+  transform: scale(0.9);
+}
+
 /* 作物图标 */
-image{
+ul li image{
   display: block;
   width: 60%;
   height: 60%;
   margin: 0 auto;
+  
 }
+/* ul li image:active{
+  transform: scale(0.9);
+} */
 .next_button{
   margin: 20rpx auto;
   width: 300rpx;

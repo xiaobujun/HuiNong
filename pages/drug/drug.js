@@ -10,7 +10,20 @@ Page({
       city_id: '003',
       city_name: '深圳'
     }],
-    selected: {}
+    selected: {},
+    drugSet:[
+      {
+        id:1,
+        drugIcon:'../icons/农药.jpg',
+        drugName:'药名',
+        drugPrice:'20￥'
+      },{
+        id:2,
+        drugIcon:'../icons/农药.jpg',
+        drugName:'药名',
+        drugPrice:'20￥'
+      }
+    ]
   },
   change (e) {
     this.setData({
