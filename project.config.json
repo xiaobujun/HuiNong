@@ -20,12 +20,15 @@
     "compileHotReLoad": false,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": true,
+    "enableEngineNative": false,
+    "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -33,20 +36,18 @@
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true,
-    "useStaticServer": true
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "condition": {},
   "libVersion": "2.24.0",
   "packOptions": {
     "ignore": [],
     "include": []
   },
-  "appid": "wx67b724076cc78e34"
+  "appid": "wx67b724076cc78e34",
+  "condition": {}
 }
