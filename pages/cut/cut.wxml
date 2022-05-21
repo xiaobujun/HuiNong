@@ -1,23 +1,15 @@
 <view>
-<<<<<<< HEAD
   <!-- image-cropper组件 -->
-=======
->>>>>>> b1906b240777030fd3790adc4d578f41ec8f529a
   <image-cropper id="image-cropper" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" limit_move="{{limit_move}}" disable_rotate="{{disable_rotate}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" angle="{{angle}}" disable_width="{{disable_width}}" max_width="{{max_width}}" max_height="{{max_height}}" disable_height="{{disable_height}}" disable_ratio="{{disable_ratio}}">
   </image-cropper>
 </view>
 <text class="tips">点击中间裁剪框可查看裁剪后的图片</text>
 <view class='bottom' wx:if="{{bottom_flag}}">
-<<<<<<< HEAD
   <!-- 回退 -->
   <image class="icon" bindtap="back" src="../icons/back.png"></image>
   <!-- 旋转 -->
   <image class="icon" bindtap="rotate" src="../icons/clockwise.png"></image>
   <!-- 确定 -->
-=======
-  <image class="icon" bindtap="back" src="../icons/back.png"></image>
-  <image class="icon" bindtap="rotate" src="../icons/clockwise.png"></image>
->>>>>>> b1906b240777030fd3790adc4d578f41ec8f529a
   <image class="icon" bindtap="showModal" src="../icons/upload.png"></image>
 </view>
 <!-- 屏幕背景变暗的背景  -->
@@ -26,7 +18,6 @@
 <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
   <view class="crop_container">
     <text class="selectTip">请选择需要识别的作物</text>
-<<<<<<< HEAD
     <block wx:for="{{cropSet}}" wx:for-item="cropItem" wx:for-index="cropIdx" wx:key="id">
       <ul>
         <li hover-class="test" bindtap="cropSpecies" value="{{cropItem.crop[0].cropName}}">
@@ -44,44 +35,5 @@
       </ul>
     </block>
     <view class="next_button">下一步</view>
-=======
-    <!-- 第一行 -->
-    <ul>
-      <li bindtap="cropSpecies" value="辣椒">
-        <image src="../icons/pepper.png"></image><text>辣椒</text>
-      </li>
-      <li>
-        <image src="../icons/pepper.png"></image><text>辣椒</text>
-      </li>
-      <li>
-        <image src="../icons/pepper.png"></image><text>辣椒</text>
-      </li>
-    </ul>
-    <!-- 第二行 -->
-    <ul>
-      <li>
-        <image src="../icons/pepper.png"></image>
-      </li>
-      <li>
-        <image src="../icons/pepper.png"></image>
-      </li>
-      <li>
-        <image src="../icons/pepper.png"></image>
-      </li>
-    </ul>
-    <!-- 第三行 -->
-    <ul>
-      <li>
-        <image src="../icons/pepper.png"></image>
-      </li>
-      <li>
-        <image src="../icons/pepper.png"></image>
-      </li>
-      <li>
-        <image src="../icons/pepper.png"></image>
-      </li>
-    </ul>
-    <view class="next_button" bindtap="resultPage">下一步</view>
->>>>>>> b1906b240777030fd3790adc4d578f41ec8f529a
   </view>
 </view>

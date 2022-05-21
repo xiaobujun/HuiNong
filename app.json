@@ -1,7 +1,9 @@
 {
   "pages":[
-    "pages/drug/drug",
+    "pages/detail/detail",
+
     "pages/cut/cut",
+    "pages/drug/drug",
     
     
     "pages/index/index",
