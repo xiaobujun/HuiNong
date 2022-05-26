@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "药品",
+  "disableScroll": true,
+  "navigationBarBackgroundColor": "#292929",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#292929",
+  "usingComponents": {
+      "select": "../../component/select/select"
+  }
+}

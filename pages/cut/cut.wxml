@@ -1,0 +1,45 @@
+<view>
+  <!-- image-cropper组件 -->
+  <image-cropper id="image-cropper" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" limit_move="{{limit_move}}" disable_rotate="{{disable_rotate}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" angle="{{angle}}" disable_width="{{disable_width}}" max_width="{{max_width}}" max_height="{{max_height}}" disable_height="{{disable_height}}" disable_ratio="{{disable_ratio}}">
+  </image-cropper>
+</view>
+<text class="tips">点击中间裁剪框可查看裁剪后的图片</text>
+<view class='bottom' wx:if="{{bottom_flag}}">
+  <!-- 回退 -->
+  <image class="icon" bindtap="back" src="../icons/back.png"></image>
+  <!-- 旋转 -->
+  <image class="icon" bindtap="rotate" src="../icons/clockwise.png"></image>
+  <!-- 确定 -->
+  <image class="icon" bindtap="showModal" src="../icons/upload.png"></image>
+</view>
+<!-- 屏幕背景变暗的背景  -->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<!-- 弹框：作物种类选择  -->
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class="crop_container">
+    <text class="selectTip">请选择需要识别的作物</text>
+    <ul wx:for="{{cropMap}}" wx:for-item="cropItem" wx:for-index="index" wx:key="index">
+      <li bindtap="cropSpecies" data-sele="{{cropItem.cropId}}" class="{{sele == index?'select_cate' :''}}">
+        <image src="{{cropItem.cropIcon}}" />
+        <text>{{cropItem.cropName}}</text>
+      </li>
+    </ul>
+    <!-- <block wx:for="{{cropSet}}" wx:for-item="cropItem" wx:for-index="cropIdx" wx:key="id">
+      <ul>
+        <li hover-class="test" bindtap="cropSpecies" value="{{cropItem.crop[0].cropName}}">
+          <image src="{{cropItem.crop[0].cropIcon}}"></image>
+          <text>{{cropItem.crop[0].cropName}}</text>
+        </li>
+        <li bindtap="cropSpecies" value="{{cropItem.crop[1].cropName}}">
+          <image src="{{cropItem.crop[1].cropIcon}}"></image>
+          <text>{{cropItem.crop[1].cropName}}</text>
+        </li>
+        <li bindtap="cropSpecies" value="{{cropItem.crop[2].cropName}}">
+          <image src="{{cropItem.crop[2].cropIcon}}"></image>
+          <text>{{cropItem.crop[2].cropName}}</text>
+        </li>
+      </ul>
+    </block> -->
+    <view class="next_button" bindtap="goResult">下一步</view>
+  </view>
+</view>

@@ -3,7 +3,6 @@ Page({
   data: {
     width: 0,
     height: 0,
-    gap: 0,
   },
 
   /**
@@ -18,7 +17,6 @@ Page({
         that.setData({
           width: res.windowWidth,
           height: res.windowHeight,
-          gap: 40
         })
       },
     });
@@ -38,50 +36,34 @@ Page({
 
   async photo() {
     // 打开相册把选择的照片转换成base64
-    let albumToBase64 = require("../../common/transitionDate/fromAlbumToBase64")
-    // 获取access_token
-    let getAccessToken = require("../../common/optimset/easydlToken")
-    // 获取识别结果
-    let getResult = require("../../common/recognition/PlantViruses")
+    let albumToBase64 = require("../../common/transitionDate/fromAlbumToUrl")
 
-    let base64 = await albumToBase64()
-    let access_token = await getAccessToken()
-    let results = await getResult(base64, access_token, 3)
+    let url = await albumToBase64()
 
     wx.navigateTo({
-      url: '../result/index',
+      url: '../cut/cut',
       success: res => {
-        res.eventChannel.emit('getResults', {
-          results: results,
-          base64: base64
+        console.log(url)
+        res.eventChannel.emit('teleUrl',{
+          url:url
         })
       }
     })
-    console.log("results", results)
   },
 
   /**
-   * 拍摄及格式转换
+   * 拍摄
    */
   async takePhoto() {
-    let carmera = require("../../common/transitionDate/fromCameraToBase64")
-    let getAccessToken = require("../../common/optimset/easydlToken")
-    let getResult = require("../../common/recognition/PlantViruses")
-
-    let base64 = await carmera(this.ctx)
-    let access_token = await getAccessToken()
-    let results = await getResult(base64, access_token, 3)
-    console.log("base64", results)
-
+    let carmera = require("../../common/transitionDate/fromCarmeraToUrl")
+    let url = await carmera(this.ctx)
     wx.navigateTo({
-      url: '../result/index',
+      url: '../cut/cut',
       success: res => {
-        res.eventChannel.emit('getResults', {
-          results: results,
-          base64: base64
+        res.eventChannel.emit('teleUrl',{
+          url:url
         })
       }
     })
   },
-
 })

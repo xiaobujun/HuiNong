@@ -1,3 +1,0 @@
-<view class="m-tag">
-  {{tag}}
-</view>

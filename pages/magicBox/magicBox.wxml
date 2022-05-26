@@ -1,2 +1,24 @@
-<!--pages/magicBox/magicBox.wxml-->
-<text>pages/magicBox/magicBox.wxml</text>
+<image class="bg" src="../icons/background.png"></image>
+<view class="magicBox_container">
+  <!-- 搜索框 -->
+  <view class="search_container">
+    <input type="text" placeholder="搜点什么吧~" />
+    <image src="../icons/search.png"></image>
+    <view class="button">搜索</view>
+  </view>
+  <!-- 子功能部分-->
+  <view class="subfunction_container">
+    <view class="subfunction" bindtap="drug">
+      <image class="icon" src="../icons/pesticide.png"></image>
+      <text>药品</text>
+    </view>
+    <view class="subfunction">
+      <image class="icon" src="../icons/pesticide.png"></image>
+      <text>广场</text>
+    </view>
+    <view class="subfunction">
+      <image class="icon" src="../icons/pesticide.png"></image>
+      <text>教程</text>
+    </view>
+  </view>
+</view>

@@ -1,12 +1,13 @@
-import {
-  API_URL
-} from "../parameterAPI/EasyDL"
-
+/**
+ * @Main 返回识别结果
+ * @param 图片base64 access_token 结果数量
+ */
 let results;
-async function plantVireusesResults(base64, access_token, top_num) {
+
+module.exports = async (base64, access_token, top_num) => {
   await new Promise(resolve => {
     wx.request({
-      url: API_URL(access_token),
+      url: access_token,
       header: {
         "Content-type": "application/json",
       },
@@ -27,4 +28,3 @@ async function plantVireusesResults(base64, access_token, top_num) {
   })
   return results
 }
-module.exports = plantVireusesResults

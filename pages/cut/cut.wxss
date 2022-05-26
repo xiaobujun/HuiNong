@@ -1,0 +1,122 @@
+.tips {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  font-size: 24rpx;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+.bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 50rpx;
+  display: flex;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  height: 210rpx;
+}
+/* 底部按钮 */
+button {
+  position: absolute;
+  font-size: 27rpx;
+  z-index: 2;
+  padding: 0 20rpx;
+  height: 60rpx;
+  min-width: 70rpx;
+  margin: 0 4rpx;
+}
+.icon{
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  margin: 80rpx;
+}
+
+/* 
+作物选择
+*/
+/*使屏幕变暗  */
+.commodity_screen {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  color: #fff;
+}
+/*对话框 */
+.commodity_attr_box {
+  position: absolute;
+  z-index: 3;
+  bottom: -10rpx;
+  left: 5%;
+  height: 860rpx;
+  width: 90%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff; 
+}
+.selectTip{
+  display: block;
+  margin: 20rpx 64rpx;
+  font-family: "微软雅黑",sans-serif;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.crop_container{
+  z-index: 2;
+  width: 100%;
+  height: 820rpx;
+}
+ul{
+  display: block;
+  width:100%;
+  text-align: center;
+}
+ul li{
+  display: inline-block;
+  width: 25%;
+  height: 180rpx;
+  margin: 16rpx;
+  line-height: 70rpx;
+  border-radius:18rpx ;
+  text-align: center;
+  background-color: rgba(242, 242, 242, 1);
+  transition: .5s;
+}
+
+ul li:active{
+  transform: scale(0.9);
+}
+
+/* 作物图标 */
+ul li image{
+  display: block;
+  width: 60%;
+  height: 60%;
+  margin: 0 auto;
+  
+}
+/* ul li image:active{
+  transform: scale(0.9);
+} */
+.next_button{
+  margin: 20rpx auto;
+  width: 300rpx;
+  height: 90rpx;
+  border-radius: 60rpx;
+  text-align: center;
+  line-height: 90rpx;
+  background-color: #1C935B;
+  box-shadow:0px 5px 15px -2px #368560;
+}
+
+.select_cate{
+  background-color: chartreuse;
+}
