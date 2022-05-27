@@ -1,9 +1,10 @@
 {
-  "pages":[
+  "pages": [
+    "pages/postQuestions/postQuestions",
+    "pages/index/index",
     "pages/cut/cut",
     "pages/detail/detail",
     "pages/test/test",
-    "pages/index/index",
     "pages/drug/drug",
     "pages/magicBox/magicBox",
     "pages/about/about",
@@ -12,31 +13,35 @@
     "pages/takePhoto/takePhoto",
     "pages/result/result"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "害虫识别",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color":"#594737",
-    "selectedColor":"#2A8F1B",
-    "list": [{
-      "pagePath": "pages/magicBox/magicBox",
-      "text": "百宝箱",
-      "iconPath": "pages/icons/magicBox.png",
-      "selectedIconPath": "pages/icons/magicBoxSelected.png"
-    },{
-      "pagePath": "pages/index/index",
-      "text": "发布",
-      "iconPath": "pages/icons/post.png",
-      "selectedIconPath": "pages/icons/postSelected.png"
-    },{
-      "pagePath": "pages/about/about",
-      "text": "我的",
-      "iconPath": "pages/icons/about.png",
-      "selectedIconPath": "pages/icons/aboutSelected.png"
-    }]
+    "color": "#594737",
+    "selectedColor": "#2A8F1B",
+    "list": [
+      {
+        "pagePath": "pages/magicBox/magicBox",
+        "text": "百宝箱",
+        "iconPath": "pages/icons/magicBox.png",
+        "selectedIconPath": "pages/icons/magicBoxSelected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "发布",
+        "iconPath": "pages/icons/post.png",
+        "selectedIconPath": "pages/icons/postSelected.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "我的",
+        "iconPath": "pages/icons/about.png",
+        "selectedIconPath": "pages/icons/aboutSelected.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
