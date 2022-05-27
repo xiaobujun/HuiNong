@@ -1,0 +1,34 @@
+<!--pages/postQuestions/postQuestions.wxml-->
+<view class="postPage">
+	<view class="topTitle">
+		<image class="returnArrow" src="../icons/arrowLeft.png" mode="aspectFill" />
+		<text>发布问题</text>
+	</view>
+	<view>
+		<picker
+		 class=""
+		 bindchange="pickerChange"
+		 value="{{index}}"
+		 range="{{issueClasses}}"
+		>
+			<view class="pickerViewInner">
+				<text>{{issueClasses[issueClassIdx]}}</text>
+				<image class="extendArrow" src="../icons/arrowRight.png" mode="aspectFill" />
+			</view>
+		</picker>
+	</view>
+	<view class="question">
+		<text>描述你的问题</text>
+		<textarea placeholder="点击输入您遇到的问题，描述越详细，解答越准确~" />
+		<view>
+            <block wx:for="{{uploadImages}}" wx:key="index" hidden="{{uploadImages.length == 0}}">
+                <image src="{{item}}" mode="aspectFill" />
+            </block>
+            <image src="{{imageSrc}}" mode="aspectFill" style="background-color: #eeeeee;" hidden="{{uploadImages.length >= 9}}"/>
+        </view>
+        <span class="tips">*为了精确诊断，请至少添加2张不同角度图</span>
+    </view>
+    <button class="publishBtn">
+    	<span>发布提问</span>
+	</button>
+</view>
