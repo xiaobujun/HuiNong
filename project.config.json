@@ -20,15 +20,13 @@
     "compileHotReLoad": true,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "useIsolateContext": false,
+    "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -36,20 +34,22 @@
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "useStaticServer": true,
+    "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "libVersion": "2.24.0",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "condition": {},
+  "cloudfunctionRoot": "cloudfunctions/",
+  "libVersion": "2.24.2",
   "packOptions": {
     "ignore": [],
     "include": []
   },
-  "appid": "wx67b724076cc78e34",
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
-  "condition": {},
-  "cloudfunctionRoot": "cloudfunctions/"
+  "appid": "wx67b724076cc78e34"
 }
