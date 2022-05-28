@@ -38,6 +38,5 @@
 			<span id="publish">发布</span>
 		</view>
 	</view>
-	<input type="text" placeholder="1" style="height: 15rpx"/>
 </view>
 
