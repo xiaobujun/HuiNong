@@ -1,12 +1,12 @@
 {
   "pages":[
+    "pages/index/index",
+    "pages/about/about",
     "pages/cut/cut",
     "pages/detail/detail",
     "pages/test/test",
-    "pages/index/index",
     "pages/drug/drug",
     "pages/magicBox/magicBox",
-    "pages/about/about",
     "pages/test1/demo",
     "pages/test1/dd",
     "pages/takePhoto/takePhoto",

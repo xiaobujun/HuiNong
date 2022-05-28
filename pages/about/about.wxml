@@ -3,8 +3,8 @@
   <!-- 头像 -->
   <view class="head_portrait_container">
   <view class="head_portrait ">
-    <image src="../icons/头像.jpg"></image>
-    <text>长沙小农</text>
+    <image src="{{user_info.avatar}}"></image>
+    <text>{{user_info.name}}</text>
   </view>
 </view>
   <!-- 设置部分 -->

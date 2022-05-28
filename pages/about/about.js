@@ -11,8 +11,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+    const db = await wx.cloud.database()
 
+    // TODO 判断缓存
+    db.collection('user').where({
+      name:'ask'
+    })
+    .get({
+      success: res => {
+        console.log(res)
+        this.setData({
+          user_info: res.data[0]
+        })
+      }
+    })
   },
 
   /**
