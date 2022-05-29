@@ -1,0 +1,67 @@
+/* pages/history/history.wxss */
+.history_tab {
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.tab-item {
+  flex: 1;
+  font-size: 20px;
+  text-align: center;
+  line-height: 72rpx;
+  border-bottom: 6rpx solid #eee;
+}
+
+.content {
+  flex: 1;
+}
+
+.content>swiper {
+  height: 100%;
+}
+
+.tab-item.active {
+  color: #368560;
+  /* border-bottom-color: #368560; */
+}
+
+.history_content {
+  width: 90%;
+  margin:5% 0 0 5%;
+}
+
+.history_content swiper {
+  height: 100vh;
+}
+
+.disease_content {
+  width: 100%;
+  /* height: 900px; */
+}
+
+.text {
+  height: 26px;
+  color: rgba(16, 16, 16, 100);
+  font-size: 18px;
+  font-weight: bold;
+  font-family: SourceHanSansSC-regular;
+}
+
+.image_content {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  /* height: 150px; */
+}
+
+.dieaseImage {
+  width: 123px;
+  height: 121px;
+  margin:2% 0 0 3%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.dieaseImage:nth-child(1){
+  margin-left:0 ;
+}

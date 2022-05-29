@@ -1,5 +1,0 @@
-<view class="camera_container">
-    <camera class="camera" device-position="back" style="height: {{height-140}}px;width:{{width}}px;">
-    </camera>
-    <view class="button" bindtap="takePhpto">拍照</view>
-</view>

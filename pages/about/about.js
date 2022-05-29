@@ -1,66 +1,73 @@
 // pages/about/about.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    about: [{
+        id: 0,
+        icon: '../icons/个人.png',
+        title: '个人信息',
+        rightIco: '../icons/右.png'
+      },
+      {
+        id: 1,
+        icon: '../icons/histories.png',
+        title: '浏览历史',
+        rightIco: '../icons/右.png'
+      },
+      {
+        id: 2,
+        icon: '../icons/send.png',
+        title: '我的发布',
+        rightIco: '../icons/右.png'
+      },
+      {
+        id: 3,
+        icon: '../icons/feedback.png',
+        title: '用户反馈',
+        rightIco: '../icons/右.png'
+      },
+      {
+        id: 4,
+        icon: '../icons/setting.png',
+        title: '设置',
+        rightIco: '../icons/右.png'
+      }
+    ]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  skip: function (e) {
+    var index = e.currentTarget.dataset.index;
+    console.log(index);
+    switch (index) {
+      case 0:
+        wx.navigateTo({
+          url: '../personInfo/person',
+        })
+        break;
+      case 1:
+        wx.navigateTo({
+          url: '../history/history',
+        })
+        break;
+      case 2:
+        wx.navigateTo({
+          url: '../issue/issue',
+        })
+        break;
+      case 3:
+        wx.navigateTo({
+          url: '../feedback/feedback',
+        })
+        break;
+        case 4:
+        wx.navigateTo({
+          url: '../setting/seting',
+        })
+        break;
+    }
   }
+
 })

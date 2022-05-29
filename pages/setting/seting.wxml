@@ -1,0 +1,16 @@
+<view class="view_container">
+  <view class="setting_option">
+    <image src="../icons/夜间模式.png"></image>
+    <text>夜间模式</text>
+    <view class="switch">
+      <switch></switch>
+    </view>
+  </view>
+  <view class="setting_option">
+    <image src="../icons/大字.png"></image>
+    <text>大字显示</text>
+    <view class="switch">
+      <switch></switch>
+    </view>
+  </view>
+</view>

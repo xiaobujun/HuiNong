@@ -1,0 +1,31 @@
+<view class="person_container">
+  <!-- 头像 -->
+  <view class="section">
+    <text>头像</text>
+    <image class="head" />
+  </view>
+  <!-- 性别 -->
+  <view class="section">
+    <radio-group class="group" bindchange="radioChange">
+    <view class="sex">性别</view>
+    <view class="radio_container">
+      <view class="label-2" wx:for="{{radioItems}}">
+        <radio id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}" />
+        <label class="label-2-text" for="{{item.name}}"><text>{{item.name}}</text></label>
+      </view>
+    </view>
+    </radio-group>
+  </view>
+  <!-- 年龄 -->
+  <view class="section">
+    <view class="picker">年龄：</view>
+    <picker bindchange="bindPickerChange" value="{{flag}}" range="{{profile}}">
+      <text class="age">{{profile[flag]}}岁</text>
+    </picker>
+  </view>
+  <!-- 个性签名 -->
+  <view class="section">
+    <text>个性签名</text>
+    <input placeholder="介绍下自己吧~" />
+  </view>
+</view>
