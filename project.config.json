@@ -9,7 +9,7 @@
     "minified": true,
     "newFeature": false,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -20,13 +20,15 @@
     "compileHotReLoad": true,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "useIsolateContext": true,
+    "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -34,9 +36,7 @@
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "useStaticServer": true,
-    "ignoreUploadUnusedFiles": true
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
   "editorSetting": {
@@ -44,12 +44,12 @@
     "tabSize": 2
   },
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
-  "condition": {},
   "cloudfunctionRoot": "cloudfunctions/",
   "libVersion": "2.24.2",
   "packOptions": {
     "ignore": [],
     "include": []
   },
-  "appid": "wx67b724076cc78e34"
+  "appid": "wx67b724076cc78e34",
+  "condition": {}
 }

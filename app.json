@@ -1,16 +1,12 @@
 {
-<<<<<<< HEAD
   "pages":[
     "pages/index/index",
-    "pages/about/about",
-=======
-  "pages": [
+    "pages/test/test",
     "pages/postQuestions/postQuestions",
-    "pages/index/index",
->>>>>>> origin/zpe_postPage-0.1A
+    "pages/about/about",
     "pages/cut/cut",
     "pages/detail/detail",
-    "pages/test/test",
+    
     "pages/drug/drug",
     "pages/magicBox/magicBox",
     "pages/test1/demo",
