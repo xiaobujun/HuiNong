@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/personInfo/person",
     "pages/feedback/feedback",
+    "pages/personInfo/person",
+    
     "pages/about/about",
    
     
