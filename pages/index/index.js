@@ -27,9 +27,7 @@ Page({
           crop: '辣椒',
         },
         question: {    // question 是问题的信息组。
-          qBubbleImgSrc: '../icons/questionBubble@3x.png',    // qBubbleImgSrc 是问题的气泡图片地址。
           qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？',   // qDescription 是问题的描述。
-          qText: '问',
           qImgs: [    // qImgs 是问题的图片地址组。
             {
               src: 'http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png',
@@ -43,8 +41,6 @@ Page({
           ]
         },
         answer: {   // answer 是回答的信息组。
-          aBubbleImgSrc: '../icons/answerBubble@3x.png',    // aBubbleImgSrc 是回答的气泡图片地址。
-          aText: '答',
           auid: '',   //  auid 是回答的用户(答主)的唯一标识。
           answerNickName: '长沙作物专家',     // answerNickName 是回答的用户(答主)的昵称。
           aAvatarImgSrc: 'http://i2.hdslb.com/bfs/face/c1bbee6d255f1e7fc434e9930f0f288c8b24293a.jpg',   // aAvatarImgSrc 是回答的用户(答主)的头像地址。
