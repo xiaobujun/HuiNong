@@ -60,7 +60,11 @@ Page({
     wx.navigateTo({
       url: '../cut/cut',
       success: res => {
+<<<<<<< HEAD
         res.eventChannel.emit('teleUrl',{
+=======
+        res.eventChannel.emit('teleUrl  ',{
+>>>>>>> origin/xiaobu_camera
           url:url
         })
       }

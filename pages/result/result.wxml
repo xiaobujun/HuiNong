@@ -1,42 +1,21 @@
 <!-- 识别结果页面 -->
+
 <view class="result_pages">
-	<view class="topBar">
-		<image class="returnArrow" src="../icons/arrowLeft.png" mode="aspectFill" />
-		<span>识别结果</span>
-	</view>
-	<!-- 显示拍照的图片 -->
-	<view class="reuslt_image">
-		<image src="{{imgSrc}}" />
-	</view>
-	<!-- 简介 -->
-	<view class="result_info_simple">
-		<view id="resultText">
-			<span>识别结果</span>
-		</view>
-		<view class="cutScrollView">
-			<scroll-view id="sv" scroll-x='true'>
-				<view id="forView" wx:for="{{results}}" wx:for-item="item">
-					<!--	<i-card title="{{item.name}}" thumb="{{item.image}}" extra="{{item.score}}" /> -->
-					<view class="resultBox" data-info="{{item}}" bindtap="goDetail">
-						<span id="resultName">{{item.name}}</span>
-						<view>
-							<image src="{{item.image}}" mode="aspectFill" lazy-load="true" />
-							<text id="descriptions">{{item.description}}</text>
-						</view>
-						<text id="accuracy">准确率：{{item.score}}</text>
-						<span id="more">详情>></span>
+  <!-- 显示拍照的图片 -->
+  <view class="reuslt_image">
+    <image src="{{imgBase64}}"></image>
+  </view>
 
-					</view>
-				</view>
-			</scroll-view>
-		</view>
-	</view>
-	<view class="QaA">
-		<span id="qa">相关问答</span>
-		<view>
-			<image src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjI2IiBzdHlsZT0iYm9yZGVyLWNvbG9yOiByZ2JhKDAsMCwwLDApO2JvcmRlci13aWR0aDogYnB4O2JvcmRlci1zdHlsZTogdW5kZWZpbmVkIiBmaWx0ZXI9Im5vbmUiPgogICAgPHBhdGggZD0iTTE2IDhoLTJ2M2gtM3YyaDN2M2gydi0zaDN2LTJoLTN6TTIgMTJjMC0yLjc5IDEuNjQtNS4yIDQuMDEtNi4zMlYzLjUyQzIuNTIgNC43NiAwIDguMDkgMCAxMnMyLjUyIDcuMjQgNi4wMSA4LjQ4di0yLjE2QTYuOTkgNi45OSAwIDAgMSAyIDEyem0xMy05Yy00Ljk2IDAtOSA0LjA0LTkgOXM0LjA0IDkgOSA5IDktNC4wNCA5LTktNC4wNC05LTktOXptMCAxNmMtMy44NiAwLTctMy4xNC03LTdzMy4xNC03IDctNyA3IDMuMTQgNyA3LTMuMTQgNy03IDd6IiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDEpIj48L3BhdGg+CiAgPC9zdmc+" mode="aspectFill" />
-			<span id="publish">发布</span>
-		</view>
-	</view>
+  <!-- 简介 -->
+  <view class="result_info_simple">
+    <view>识别结果</view>
+    <swiper indicator-dots="true">
+      <view wx:for="{{results}}" wx:for-item="item">
+        <swiper-item>
+          <i-card title="{{item.name}}" extra="{{item.score}}">
+          </i-card>
+        </swiper-item>
+      </view>
+    </swiper>
+  </view>
 </view>
-

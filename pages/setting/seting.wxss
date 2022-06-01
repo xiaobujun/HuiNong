@@ -1,0 +1,30 @@
+/* pages/setting/seting.wxss */
+.view_container {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.setting_option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  height: 47px;
+  margin: 28rpx auto;
+  line-height: 20px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(187, 187, 187, 100);
+}
+
+image {
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 10px 0 20px;
+}
+
+.switch {
+  margin-left: 50%;
+}

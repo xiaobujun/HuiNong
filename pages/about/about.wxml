@@ -1,33 +1,19 @@
-<image class="bg" src="../icons/background.png"></image>
 <view class="about_container">
   <!-- 头像 -->
   <view class="head_portrait_container">
-  <view class="head_portrait ">
-    <image src="{{user_info.avatar}}"></image>
-    <text>{{user_info.name}}</text>
+    <view class="head_portrait ">
+      <image src="../icons/头像.jpg"></image>
+      <text>长沙小农</text>
+    </view>
   </view>
 </view>
-  <!-- 设置部分 -->
-  <view class="setting_container">
-    <view class="setting_options">
-      <image src="../icons/histories.png"></image> 
-      <text>浏览历史</text>
-      <image src="../icons/右.png"></image> 
+<!-- 设置部分 -->
+<view class="setting_container">
+  <block wx:for="{{about}}" wx:key="index">
+    <view data-index="{{index}}" bindtap="skip" class="setting_options">
+      <image src="{{item.icon}}"></image>
+      <text>{{item.title}}</text>
+      <image src="{{item.rightIco}}"></image>
     </view>
-    <view class="setting_options">
-      <image src="../icons/send.png"></image>
-      <text>我的发布</text>
-      <image src="../icons/右.png"></image> 
-    </view>
-    <view class="setting_options">
-      <image src="../icons/feedback.png"></image>
-      <text>用户反馈</text>
-      <image src="../icons/右.png"></image> 
-    </view>
-    <view class="setting_options">
-      <image src="../icons/setting.png"></image>
-      <text>设置</text>
-      <image src="../icons/右.png"></image> 
-    </view>
-  </view>
+  </block>
 </view>

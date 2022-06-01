@@ -6,11 +6,15 @@
     "pages/about/about",
     "pages/cut/cut",
     "pages/detail/detail",
-    
+    "pages/feedback/feedback",
+    "pages/personInfo/person", 
     "pages/drug/drug",
     "pages/magicBox/magicBox",
     "pages/test1/demo",
     "pages/test1/dd",
+    "pages/setting/seting",
+    "pages/history/history",
+    "pages/issue/issue",
     "pages/takePhoto/takePhoto",
     "pages/result/result"
   ],

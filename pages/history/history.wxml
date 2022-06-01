@@ -1,0 +1,39 @@
+<view class="history_container">
+  <!-- tab栏 -->
+  <view class="history_tab">
+    <view class="tab-item {{tab==0?'active':''}}" bindtap="changeItem" data-item="0">病害</view>
+    <view class="tab-item {{tab==1?'active':''}}" bindtap="changeItem" data-item="1">问答</view>
+  </view>
+  <!-- 历史记录 -->
+  <view class="history_content">
+    <swiper current="{{item}}" bindchange="changeTab">
+      <!-- 病害记录 -->
+      <swiper-item>
+        <scroll-view class="disease_content" scroll-y="true">
+          <block wx:for="{{diease}}" wx:key="id">
+            <view class="text">
+              {{item.date}}
+            </view>
+
+            <scroll-view class="image_content" scroll-x="true">
+              <block wx:for="{{item.dieaseImage}}" wx:for-item="dieasePhoto" wx:key="id">
+
+                <image class="dieaseImage" src="{{dieasePhoto}}"></image>
+
+              </block>
+            </scroll-view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!-- 问答记录 -->
+      <swiper-item>
+        <scroll-view>
+          <block>
+            <view>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
