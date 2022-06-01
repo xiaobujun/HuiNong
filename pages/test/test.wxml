@@ -1,0 +1,10 @@
+<view class="about_container">
+  <!-- 头像 -->
+  <view class="head_portrait_container">
+    <view class="head_portrait " bindtap="login">
+      <image src="../icons/头像.jpg"></image>
+      <text>长沙小农</text>
+    </view>
+  </view>
+</view>
+<!-- 设置部分 -->

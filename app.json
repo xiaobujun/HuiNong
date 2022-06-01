@@ -1,18 +1,15 @@
 {
   "pages":[
+    "pages/test/test",
+    "pages/index/index",
+  
     "pages/feedback/feedback",
     "pages/personInfo/person",
-    
     "pages/about/about",
-   
-    
     "pages/setting/seting",
-   
     "pages/history/history",
     "pages/issue/issue",
     "pages/detail/detail",
-    
-    "pages/index/index",
     "pages/cut/cut",
     "pages/drug/drug",
     "pages/magicBox/magicBox",
