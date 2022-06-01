@@ -1,7 +1,7 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/test/test",
+    "pages/discussionDetails/discussionDetails",
     "pages/postQuestions/postQuestions",
     "pages/about/about",
     "pages/cut/cut",

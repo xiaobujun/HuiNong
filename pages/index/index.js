@@ -27,9 +27,9 @@ Page({
         crop: '辣椒',
       },
       question: { // question 是问题的信息组。
-        qBubbleImgSrc: '../icons/questionBubble@3x.png', // qBubbleImgSrc 是问题的气泡图片地址。
+        // qBubbleImgSrc: '../icons/questionBubble@3x.png', // qBubbleImgSrc 是问题的气泡图片地址。
         qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？', // qDescription 是问题的描述。
-        qText: '问',
+        // qText: '问',
         qImgs: [ // qImgs 是问题的图片地址组。
           {
             src: 'http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png',
@@ -40,16 +40,9 @@ Page({
           }
         ]
       },
-      answer: { // answer 是回答的信息组。
-        aBubbleImgSrc: '../icons/answerBubble@3x.png', // aBubbleImgSrc 是回答的气泡图片地址。
-        aText: '答',
-        auid: '', //  auid 是回答的用户(答主)的唯一标识。
-        answerNickName: '长沙作物专家', // answerNickName 是回答的用户(答主)的昵称。
-        aAvatarImgSrc: 'http://i2.hdslb.com/bfs/face/c1bbee6d255f1e7fc434e9930f0f288c8b24293a.jpg', // aAvatarImgSrc 是回答的用户(答主)的头像地址。
-        aDescription: '叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年' // aDescription 是回答的内容。
-      },
+      
       totalView: '220', // totalView 是回答的总浏览数。
-      totalAnswer: '1', // totalAnswer 是回答的总数。
+      totalAnswer: 0, // totalAnswer 是回答的总数。
     }, {
       id: 1,
       uBasicInfo: {
@@ -171,139 +164,135 @@ Page({
     // console.log(arr)
 
     console.log(arr)
-    arr.push(
-      {
-        id: 0, // id 是每张卡片的唯一标识。
-        uBasicInfo: { // uBasicInfo 是用户的基本信息组。
-          uid: '15972893', // uid 是用户的唯一标识。
-          nickName: '零点能', // nickName 是用户的昵称。
-          avatarImgSrc: 'http://i2.hdslb.com/bfs/face/8fc169c4fd7594cc7895694e6c3f0dc836d49b31.jpg', // avatarImgSrc 是用户的头像地址。
-          releaseDate: '2022-04-20 12:30 PM', // releaseDate 是用户发布的时间。
-          crop: '辣椒',
-        },
-        question: { // question 是问题的信息组。
-          qBubbleImgSrc: '../icons/questionBubble@3x.png', // qBubbleImgSrc 是问题的气泡图片地址。
-          qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？', // qDescription 是问题的描述。
-          qText: '问',
-          qImgs: [ // qImgs 是问题的图片地址组。
-            {
-              src: 'http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png',
-            }, {
-              src: 'http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png',
-            }, {
-              src: 'http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png',
-            }
-          ]
-        },
-        answer: { // answer 是回答的信息组。
-          aBubbleImgSrc: '../icons/answerBubble@3x.png', // aBubbleImgSrc 是回答的气泡图片地址。
-          aText: '答',
-          auid: '', //  auid 是回答的用户(答主)的唯一标识。
-          answerNickName: '长沙作物专家', // answerNickName 是回答的用户(答主)的昵称。
-          aAvatarImgSrc: 'http://i2.hdslb.com/bfs/face/c1bbee6d255f1e7fc434e9930f0f288c8b24293a.jpg', // aAvatarImgSrc 是回答的用户(答主)的头像地址。
-          aDescription: '叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年' // aDescription 是回答的内容。
-        },
-        totalView: '220', // totalView 是回答的总浏览数。
-        totalAnswer: '1', // totalAnswer 是回答的总数。
-      }, {
-        id: 1,
-        uBasicInfo: {
-          uid: '15431912',
-          nickName: 'Lynnrin',
-          avatarImgSrc: 'http://i2.hdslb.com/bfs/face/9e5eab47e37f315533d46934b0978cd7cc2b0acf.jpg',
-          releaseDate: '2022-04-20 14:37 PM',
-          crop: '西红柿',
-        },
-        question: {
-          qBubbleImgSrc: '../icons/questionBubble@3x.png',
-          qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？',
-          qText: '问',
-          qImgs: [{
-            src: 'http://i1.hdslb.com/bfs/face/e93dd9edfa7b9e18bf46fd8d71862327a2350923.png',
-          }, {
-            src: 'http://i1.hdslb.com/bfs/face/e93dd9edfa7b9e18bf46fd8d71862327a2350923.png',
-          }, {
-            src: 'http://i1.hdslb.com/bfs/face/e93dd9edfa7b9e18bf46fd8d71862327a2350923.png',
-          }]
-        },
-        answer: {
-          aBubbleImgSrc: '../icons/answerBubble@3x.png',
-          aText: '答',
-          auid: '',
-          answerNickName: '长沙作物专家',
-          aAvatarImgSrc: 'http://i2.hdslb.com/bfs/face/ef0457addb24141e15dfac6fbf45293ccf1e32ab.jpg',
-          aDescription: '叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年'
-        },
-        totalView: '220',
-        totalAnswer: '12',
-      }, {
-        id: 2,
-        uBasicInfo: {
-          uid: '15972893',
-          nickName: 'oooooomygosh',
-          avatarImgSrc: 'http://i2.hdslb.com/bfs/face/54b2cb29d8222be20addda530fe954a53db4744b.jpg',
-          releaseDate: '2022-04-20 14:49 PM',
-          crop: '辣椒',
-        },
-        question: {
-          qBubbleImgSrc: '../icons/questionBubble@3x.png',
-          qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？',
-          qText: '问',
-          qImgs: [{
-            src: 'http://i2.hdslb.com/bfs/face/82896ff40fcb4e7c7259cb98056975830cb55695.png',
-          }, {
-            src: 'http://i2.hdslb.com/bfs/face/82896ff40fcb4e7c7259cb98056975830cb55695.png',
-          }, {
-            src: 'http://i2.hdslb.com/bfs/face/82896ff40fcb4e7c7259cb98056975830cb55695.png',
-          }]
-        },
-        answer: {
-          aBubbleImgSrc: '../icons/answerBubble@3x.png',
-          aText: '答',
-          auid: '',
-          answerNickName: '长沙作物专家',
-          aAvatarImgSrc: 'http://i0.hdslb.com/bfs/face/d4de6a84557eea8f18510a3f61115d96832aa071.jpg',
-          aDescription: '叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年'
-        },
-        totalView: '220',
-        totalAnswer: '12',
-      }, {
-        id: 3,
-        uBasicInfo: {
-          uid: '15972893',
-          nickName: '茂的模',
-          avatarImgSrc: 'http://i0.hdslb.com/bfs/face/e8b9df8a86109dcbd1912013d1caf2118abf0578.jpg',
-          releaseDate: '2022-04-20 14:50 PM',
-          crop: '辣椒',
-        },
-        question: {
-          qBubbleImgSrc: '../icons/questionBubble@3x.png',
-          qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？',
-          qText: '问',
-          qImgs: [{
-            src: 'http://i0.hdslb.com/bfs/face/f6a31275029365ae5dc710006585ddcf1139bde1.png',
-          }, {
-            src: 'http://i0.hdslb.com/bfs/face/f6a31275029365ae5dc710006585ddcf1139bde1.png',
-          }, {
-            src: 'http://i0.hdslb.com/bfs/face/f6a31275029365ae5dc710006585ddcf1139bde1.png',
-          }]
-        },
-        answer: {
-          aBubbleImgSrc: '../icons/answerBubble@3x.png',
-          aText: '答',
-          auid: '',
-          answerNickName: '长沙作物专家',
-          aAvatarImgSrc: 'http://i0.hdslb.com/bfs/face/79035c4f21e492b7f409de75354d07a2f581766b.jpg',
-          aDescription: '叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年'
-        },
-        totalView: '220',
-        totalAnswer: '12',
-      } 
-    )
-    console.log(arr)
-    this.setData({
-      piazzaContent:  arr
-    })
+    // arr.push(
+    //   {
+    //     id: 0, // id 是每张卡片的唯一标识。
+    //     uBasicInfo: { // uBasicInfo 是用户的基本信息组。
+    //       uid: '15972893', // uid 是用户的唯一标识。
+    //       nickName: '零点能', // nickName 是用户的昵称。
+    //       avatarImgSrc: 'http://i2.hdslb.com/bfs/face/8fc169c4fd7594cc7895694e6c3f0dc836d49b31.jpg', // avatarImgSrc 是用户的头像地址。
+    //       releaseDate: '2022-04-20 12:30 PM', // releaseDate 是用户发布的时间。
+    //       crop: '辣椒',
+    //     },
+    //     question: {    // question 是问题的信息组。
+    //       qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？',   // qDescription 是问题的描述。
+    //       qImgs: [    // qImgs 是问题的图片地址组。
+    //         {
+    //           src: 'http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png',
+    //         }, {
+    //           src: 'http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png',
+    //         }, {
+    //           src: 'http://i2.hdslb.com/bfs/face/032bce9fd6dcb562d83b60f8a8719362b18a0afb.png',
+    //         }
+    //       ]
+    //     },
+    //     answer: {   // answer 是回答的信息组。
+    //       auid: '',   //  auid 是回答的用户(答主)的唯一标识。
+    //       answerNickName: '长沙作物专家',     // answerNickName 是回答的用户(答主)的昵称。
+    //       aAvatarImgSrc: 'http://i2.hdslb.com/bfs/face/c1bbee6d255f1e7fc434e9930f0f288c8b24293a.jpg',   // aAvatarImgSrc 是回答的用户(答主)的头像地址。
+    //       aDescription: '叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年'   // aDescription 是回答的内容。
+    //     },
+    //     totalView: '220', // totalView 是回答的总浏览数。
+    //     totalAnswer: '1', // totalAnswer 是回答的总数。
+    //   }, {
+    //     id: 1,
+    //     uBasicInfo: {
+    //       uid: '15431912',
+    //       nickName: 'Lynnrin',
+    //       avatarImgSrc: 'http://i2.hdslb.com/bfs/face/9e5eab47e37f315533d46934b0978cd7cc2b0acf.jpg',
+    //       releaseDate: '2022-04-20 14:37 PM',
+    //       crop: '西红柿',
+    //     },
+    //     question: {
+    //       qBubbleImgSrc: '../icons/questionBubble@3x.png',
+    //       qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？',
+    //       qText: '问',
+    //       qImgs: [{
+    //         src: 'http://i1.hdslb.com/bfs/face/e93dd9edfa7b9e18bf46fd8d71862327a2350923.png',
+    //       }, {
+    //         src: 'http://i1.hdslb.com/bfs/face/e93dd9edfa7b9e18bf46fd8d71862327a2350923.png',
+    //       }, {
+    //         src: 'http://i1.hdslb.com/bfs/face/e93dd9edfa7b9e18bf46fd8d71862327a2350923.png',
+    //       }]
+    //     },
+    //     answer: {
+    //       aBubbleImgSrc: '../icons/answerBubble@3x.png',
+    //       aText: '答',
+    //       auid: '',
+    //       answerNickName: '长沙作物专家',
+    //       aAvatarImgSrc: 'http://i2.hdslb.com/bfs/face/ef0457addb24141e15dfac6fbf45293ccf1e32ab.jpg',
+    //       aDescription: '叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年'
+    //     },
+    //     totalView: '220',
+    //     totalAnswer: '12',
+    //   }, {
+    //     id: 2,
+    //     uBasicInfo: {
+    //       uid: '15972893',
+    //       nickName: 'oooooomygosh',
+    //       avatarImgSrc: 'http://i2.hdslb.com/bfs/face/54b2cb29d8222be20addda530fe954a53db4744b.jpg',
+    //       releaseDate: '2022-04-20 14:49 PM',
+    //       crop: '辣椒',
+    //     },
+    //     question: {
+    //       qBubbleImgSrc: '../icons/questionBubble@3x.png',
+    //       qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？',
+    //       qText: '问',
+    //       qImgs: [{
+    //         src: 'http://i2.hdslb.com/bfs/face/82896ff40fcb4e7c7259cb98056975830cb55695.png',
+    //       }, {
+    //         src: 'http://i2.hdslb.com/bfs/face/82896ff40fcb4e7c7259cb98056975830cb55695.png',
+    //       }, {
+    //         src: 'http://i2.hdslb.com/bfs/face/82896ff40fcb4e7c7259cb98056975830cb55695.png',
+    //       }]
+    //     },
+    //     answer: {
+    //       aBubbleImgSrc: '../icons/answerBubble@3x.png',
+    //       aText: '答',
+    //       auid: '',
+    //       answerNickName: '长沙作物专家',
+    //       aAvatarImgSrc: 'http://i0.hdslb.com/bfs/face/d4de6a84557eea8f18510a3f61115d96832aa071.jpg',
+    //       aDescription: '叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年'
+    //     },
+    //     totalView: '220',
+    //     totalAnswer: '12',
+    //   }, {
+    //     id: 3,
+    //     uBasicInfo: {
+    //       uid: '15972893',
+    //       nickName: '茂的模',
+    //       avatarImgSrc: 'http://i0.hdslb.com/bfs/face/e8b9df8a86109dcbd1912013d1caf2118abf0578.jpg',
+    //       releaseDate: '2022-04-20 14:50 PM',
+    //       crop: '辣椒',
+    //     },
+    //     question: {
+    //       qBubbleImgSrc: '../icons/questionBubble@3x.png',
+    //       qDescription: '不知道什么原因这几天叶子变得很黄，还出现好多的虫子，打什么药才好呢？',
+    //       qText: '问',
+    //       qImgs: [{
+    //         src: 'http://i0.hdslb.com/bfs/face/f6a31275029365ae5dc710006585ddcf1139bde1.png',
+    //       }, {
+    //         src: 'http://i0.hdslb.com/bfs/face/f6a31275029365ae5dc710006585ddcf1139bde1.png',
+    //       }, {
+    //         src: 'http://i0.hdslb.com/bfs/face/f6a31275029365ae5dc710006585ddcf1139bde1.png',
+    //       }]
+    //     },
+    //     answer: {
+    //       aBubbleImgSrc: '../icons/answerBubble@3x.png',
+    //       aText: '答',
+    //       auid: '',
+    //       answerNickName: '长沙作物专家',
+    //       aAvatarImgSrc: 'http://i0.hdslb.com/bfs/face/79035c4f21e492b7f409de75354d07a2f581766b.jpg',
+    //       aDescription: '叶片斑驳褪绿发黄,病毒呈病叶型症状,除种子带毒外蚜虫为害,即接触传染都会传染引起,肥料配比不科学,连作地阿巴阿巴阿巴阿巴.学习新思想,争做新青年'
+    //     },
+    //     totalView: '220',
+    //     totalAnswer: '12',
+    //   } 
+    // )
+    // console.log(arr)
+    // this.setData({
+    //   piazzaContent:  arr
+    // })
     
   },
   /**

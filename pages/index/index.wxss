@@ -210,16 +210,32 @@ i {
 
 /* 这个是 问题/回答 icon 的样式 */
 .QABubble {
-    width: 48rpx;
-    height: 48rpx;
+    /* width: 48rpx;
+    height: 48rpx; */
+    width: 46rpx;
+    height: 42rpx;
+    line-height: 34rpx;
+    border-radius: 24rpx 24rpx 24rpx 0rpx;
+    color: rgba(16, 16, 16, 100);
+    font-size: 24rpx;
+    font-weight: 600;
+    text-align: center;
+    font-family: Arial;
+}
+
+.Question {
+    background-color: rgba(255, 207, 50, 100);
+}
+
+.Answer {
+    color: #FFF;
+    background-color: rgba(54, 133, 96, 100);
 }
 
 /* 这个是 "问"/"答" 字的样式设置 */
 .QAText {
-    font-size: 27rpx;
-    font-weight: bold;
-    margin-top: -90%;
-    margin-left: 4%;
+    position: relative;
+    top: 7rpx;
 }
 
 /* 这个是 问题/回答内容 的样式设置 */

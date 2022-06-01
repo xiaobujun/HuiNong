@@ -1,0 +1,125 @@
+<!--pages/discussionDetails/discussionDetails.wxml-->
+<view class="page">
+	<view class="title">详情</view>
+	<view class="cardDetail">
+		<view class="userBasicInfo">
+			<image
+			 class="piazzaAvatar"
+			 mode="aspectFill"
+			 src="{{discussionContent.uBasicInfo.avatarImgSrc}}"
+			 lazy-load="true"
+			/>
+			<!-- 是用户的头像 -->
+			<view class="userBasicInfoGroupPart">
+				<span class="userNickName">{{discussionContent.uBasicInfo.nickName}}</span>
+				<!-- 是用户昵称 -->
+				<span class="userReleaseDate">{{discussionContent.uBasicInfo.releaseDate}}</span>
+				<!-- 是用户发布时间 -->
+			</view>
+			<span class="crops">
+				{{discussionContent.uBasicInfo.crop}}
+			</span>
+			<!-- 是作物 -->
+		</view>
+		<view class="QA">
+			<view class="QAGroupPart">
+				<view class="QABubble Question">
+					<!-- 问题气泡 -->
+					<span class="QAText">问</span>
+				</view>
+				<!-- 是一个"问"字 -->
+			</view>
+			<span class="QADescription">{{discussionContent.question.qDescription}}</span>
+			<!-- "是问题描述" -->
+		</view>
+		<view class="userQuestionImgs" hidden="{{discussionContent.question.qImgs >= 0}}">
+			<!-- 是问题图片. 有图片则显示,没有则不渲染此项 -->
+			<block wx:for="{{discussionContent.question.qImgs}}" wx:key="index">
+				<image
+				 class="qImage"
+				 mode="aspectFill"
+				 src="{{item}}"
+				 lazy-load="true"
+				/>
+				<!-- 是图片们 -->
+			</block>
+		</view>
+		<view class="QA answerBT">
+			<view class="QAGroupPart answerBT">
+				<view class="QABubble Answer">
+					<!-- 回答气泡 -->
+					<span class="QAText">答</span>
+				</view>
+				<!-- 是一个"答"字 -->
+			</view>
+			<view class="answer" wx:if="{{discussionContent.totalAnswer != 0}}">
+				<!-- 根据回答数判断,不为零则显示回答;为零则有提示 -->
+				<view class="answersBasicInfo">
+					<image
+					 class="answerAvatar"
+					 mode="aspectFill"
+					 src="{{discussionContent.answer.aAvatarImgSrc}}"
+					 lazy-load="true"
+					/>
+					<!-- 是回答者的头像 -->
+					<span class="answerNickName">{{discussionContent.answer.answerNickName}}</span>
+					<!-- 是回答者的昵称 -->
+				</view>
+				<view class="QADescription answerDescription">{{discussionContent.answer.aDescription}}</view>
+				<!-- 是回答的内容 -->
+			</view>
+			<view wx:else class="noAnswers answerBT">{{noAnsers}}</view>
+			<!-- 没有回答时给出的提示 -->
+		</view>
+		<span class="separator" />
+		<view class="comments" wx:if="{{comments.page.acount > 0}}">
+			<view class="replyAcount">回复（{{comments.page.acount}}）</view>
+			<view class="replies" wx:for="{{comments.commentList}}">
+				<view class="userInfos">
+					<image
+					 class="commentAvatar"
+					 mode="aspectFill"
+					 src="{{item.user.avatarImgSrc}}"
+					 lazy-load="true"
+					/>
+					<!-- 是用户的头像 -->
+					<view class="userTextPart">
+						<view>
+							<text class="nickName">{{item.user.nickName}}</text>
+							<view class="identity" wx:if="{{item.user.identity}}"><text>{{item.user.identity}}</text></view>
+						</view>
+						<text class="releaseDate">{{item.ctime}}</text>
+					</view>
+				</view>
+				<view class="userComment">
+					<text class="commentContent">{{item.content}}</text>
+				</view>
+				<view class="replyToReply" wx:for="{{item.replies}}">
+					<view class="userInfos">
+						<image
+						 class="commentAvatar rtrAvatar"
+						 mode="aspectFill"
+						 src="{{item.user.avatarImgSrc}}"
+						 lazy-load="true"
+						/>
+						<view class="userTextPart">
+							<view>
+							<text class="nickName">{{item.user.nickName}}</text>
+							<view class="identity" wx:if="{{item.user.identity}}"><text>{{item.user.identity}}</text></view>
+						</view>
+							<text class="releaseDate">{{item.ctime}}</text>
+						</view>
+					</view>
+					<view class="userComment">
+						<text class="commentContent rtrCommentContent">{{item.content}}</text>
+					</view>
+				</view>
+				<span class="separator inReply" />
+			</view>
+			<text class="repliesEnd">评论到底了哦～</text>
+		</view>
+		<view wx:else>暂无评论</view>
+	</view>
+
+</view>
+
