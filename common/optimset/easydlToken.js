@@ -1,15 +1,7 @@
 // 获取easydl access_token
-import {
-  TOKEN_URL,
-  TOKEN_GRANT_TYPE,
-  TOKEN_CLIENT_ID,
-  TOKEN_CLIENT_SECRET
-} from "../parameterAPI/EasyDL"
-
-
 let token;
 
-async function access_token () {
+module.exports = async (TOKEN_URL,TOKEN_GRANT_TYPE,TOKEN_CLIENT_ID,TOKEN_CLIENT_SECRET) => {
   await new Promise(resolve =>{
     wx.request({
       url: TOKEN_URL,
@@ -28,7 +20,6 @@ async function access_token () {
   }).then(t => {
     token = t
   })
+  console.log('token',token)
   return token
 }
-
-module.exports = access_token

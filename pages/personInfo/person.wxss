@@ -2,51 +2,48 @@
   display: flex;
   flex-direction: column;
 }
+/* 每一项个人信息 */
 .section{
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
   align-items: center;
   width: 90%;
   height: 60px;
   margin: 20px auto;
   border-bottom: 2px solid rgba(240, 240, 240, 1) ;
-  /* background-color: antiquewhite; */
 }
+/* 为头像设置高一点 */
 .section:nth-child(1){
   height: 80px;
 }
 
-.section:nth-child(3) picker {
+.right {
+  margin-left: auto;
+  margin-right: 50rpx;
+  /* background-color: #1aad19; */
+}
+.group{
   margin-left: auto;
   margin-right: 50rpx;
 }
 
-.head{
+.avatar{
   display: block;
   width: 72px;
   height: 72px;
-  margin-left: 65%;
   background-color: rosybrown;
   border-radius: 8px;
 }
-.section input{
-  margin-left: 55%;
-}
-.sex{
-  display: inline;
-}
 .radio_container{
   width: 80%;
-  display: inline;
-  margin-left: 400rpx;
+  margin-left: 0%;
+  margin-right: 50rpx;
+  background-color: #1aad19;
 }
 .label-2{
   display: inline;
   margin-left: 5px;
 }
-
-
 .label-2__icon {
   position: relative;
   display: inline-block;
@@ -57,7 +54,6 @@
   background: rebeccapurple;
   border-radius: 50px;
 }
-
 .label-2__icon-checked {
   position: absolute;
   left: 3px;
@@ -67,8 +63,14 @@
   background: #1aad19;
   border-radius: 50%;
 }
-
-.label-4_text{
-  text-align: center;
-  margin-top: 15px;
+input{
+  position: relative;
+  right:0;
+  bottom: 0;
+  text-align: right;
+  /* background-color: black; */
 }
+::-webkit-input-placeholder { /* WebKit browsers */
+  direction: rtl;
+}
+ 

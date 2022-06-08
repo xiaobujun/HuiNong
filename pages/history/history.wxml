@@ -9,19 +9,19 @@
     <swiper current="{{item}}" bindchange="changeTab">
       <!-- 病害记录 -->
       <swiper-item>
+      <!--  -->
         <scroll-view class="disease_content" scroll-y="true">
           <block wx:for="{{diease}}" wx:key="id">
             <view class="text">
               {{item.date}}
             </view>
-
+            <!-- 每条记录为一行 -->
             <scroll-view class="image_content" scroll-x="true">
-              <block wx:for="{{item.dieaseImage}}" wx:for-item="dieasePhoto" wx:key="id">
-
+              <block wx:for="{{item.dieaseImage}}" wx:for-item="dieasePhoto" wx:key="index">
                 <image class="dieaseImage" src="{{dieasePhoto}}"></image>
-
               </block>
             </scroll-view>
+            <!-- 每行记录结束 -->
           </block>
         </scroll-view>
       </swiper-item>

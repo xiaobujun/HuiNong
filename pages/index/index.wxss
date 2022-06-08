@@ -3,90 +3,126 @@
     min-height: 100vh;
     display: flex;
     flex-flow: column;
-  }
-  
-  .camera_container{
+}
+
+.camera_container {
     width: 100%;
-    height: 55vh;
+    height: 100vh;
     background-color: antiquewhite;
     display: flex;
     flex-flow: column;
-  }
-  .famera_icon{
+}
+
+.famera_icon {
     display: block;
     position: absolute;
-    left: 0; 
-    top: 2vh; 
-    right: 0; 
-    bottom: 0; 
+    left: 0;
+    top: 2vh;
+    right: 0;
+    bottom: 0;
     width: 414rpx;
     height: 262rpx;
     margin: 0 auto;
-  }
-  .camera{
+}
+
+.camera {
     width: 90%;
     height: 76%;
     margin: 150rpx auto 0;
     text-align: center;
-    background-color:#D3F9EA ;
-    border-radius:40rpx;
+    background-color: #D3F9EA;
+    border-radius: 40rpx;
     border: 1px solid #C0C0C0;
-  }
-  .camera_text{
+}
+
+.camera_text {
     padding-top: 30rpx;
     font-weight: bold;
     font-size: 50rpx;
-    font-family: '微软雅黑',sans-serif;
-  }
-  
-  .icon_container{
+}
+
+.icon_container {
     width: 80%;
-    /* height:40%; */
+    height: 65%;
     margin: 130rpx auto 0;
     background-color: white;
     border: 1px solid #C0C0C0;
-    border-radius: 25px;
-  }
-  i{
+    border-radius: 50rpx;
+}
+
+i {
     display: block;
     width: 50%;
     height: 80%;
     margin: 0 auto;
     /* background-color: yellow; */
-  }
-  
-  .camera_icon{
+}
+
+.camera_icon {
     width: 180rpx;
     height: 180rpx;
-  }
-  
-  /* 这是 广场讨论 模块整体的 view 样式 */
-  .piazzaContainer {
+    margin-top: 60%
+}
+
+@keyframes slideArrowUP {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    45% {
+        transform: translate3d(0, -100%, 0);
+
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0)
+    }
+
+}
+
+.slideGuide {
+    position: relative;
+    width: 40rpx;
+    margin: 0 auto;
     flex: 1;
+}
+
+.slideArrow {
+    position: absolute;
+    bottom: 0;
+    width: 40rpx;
+    height: 40rpx;
+
+    animation: slideArrowUP 3s ease infinite;
+    -webkit-animation: slideArrowUP 3s ease infinite;
+
+}
+
+/* 这是 广场讨论 模块整体的 view 样式 */
+.piazzaContainer {
     width: 100%;
-    height: 480rpx;
-    /* background: #444; */
-  }
-  
-  /* 这个是 “广场讨论” 四个字的样式设置 */
-  .piazzaCommunication {
-    font-family: '微软雅黑',sans-serif;
+    height: 0rpx;
+}
+
+/* 这个是 “广场讨论” 四个字的样式设置 */
+.piazzaCommunication {
+    font-family: '微软雅黑', sans-serif;
     font-size: 35rpx;
     font-weight: 600;
     padding-top: 2%;
     padding-bottom: 2%;
     padding-left: 7%;
     text-align: left;
-  }
-  
-  /* 这个是 可滚动视图区域 的样式设置 */
-  .scrollView {
+}
+
+/* 这个是 可滚动视图区域 的样式设置 */
+.scrollView {
     width: 105%;
     height: 45vh;
-  }
-  
-  /* 这个是 讨论卡片 的样式设置 */
-  .piazzaDiscussions {
+}
+
+/* 这个是 讨论卡片 的样式设置 */
+.piazzaDiscussions {
     display: flex;
     flex-flow: row wrap;
     width: calc(85% + 0.5px);
@@ -94,22 +130,22 @@
     margin-top: 10rpx;
     margin-left: 37rpx;
     text-align: center;
-    border-radius:25px;
+    border-radius: 25px;
     border: 1px solid #C0C0C0;
     margin-bottom: 15rpx;
     padding-bottom: 30rpx;
-  }
-  
-  /* 这个是 用户信息组 的样式设置 */
-  .userBasicInfo {
+}
+
+/* 这个是 用户信息组 的样式设置 */
+.userBasicInfo {
     display: inline-flex;
     /* background: #444; */
     width: 100%;
     margin-top: 3%;
-  }
-  
-  /* 这个是 用户头像 的样式设置 */
-  .piazzaAvatar {
+}
+
+/* 这个是 用户头像 的样式设置 */
+.piazzaAvatar {
     width: 100rpx;
     height: 100rpx;
     /* margin-top: 3%; */
@@ -118,10 +154,10 @@
     border: 2px solid #444;
     border-radius: 50%;
     background: #444;
-  }
-  
-  /* 这个是 用户名+发布时间 的样式设置 */
-  .userBasicInfoGroupPart {
+}
+
+/* 这个是 用户名+发布时间 的样式设置 */
+.userBasicInfoGroupPart {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -129,21 +165,21 @@
     height: 80%;
     margin-top: 1%;
     margin-left: 2%;
-  }
-  
-  /* 这个是 用户名（即“长沙小农”） 的样式设置 */
-  .userNickName {
+}
+
+/* 这个是 用户名（即“长沙小农”） 的样式设置 */
+.userNickName {
     font-size: 35rpx;
     font-weight: bold;
-  }
-  
-  /* 这个是 发布时间 的样式设置 */
-  .userReleaseDate {
+}
+
+/* 这个是 发布时间 的样式设置 */
+.userReleaseDate {
     font-size: 25rpx;
-  }
-  
-  /* 这个是卡片右上方显示的 农作物 的样式设置 */
-  .crops {
+}
+
+/* 这个是卡片右上方显示的 农作物 的样式设置 */
+.crops {
     margin-left: auto;
     width: 20%;
     height: 30%;
@@ -157,80 +193,97 @@
     background: #FF8146;
     border: 1px solid #FF8146;
     border-radius: 100rpx 0rpx 0rpx 100rpx;
-  }
-  
-  /* 这个是 问题/回答 区域的样式设置 */
-  .QA {
+}
+
+/* 这个是 问题/回答 区域的样式设置 */
+.QA {
     display: inline-flex;
     margin-top: 3%;
     margin-left: 7%;
-  }
-  
-  /* 这个是 问题/回答 icon + "问"/"答" 字组合的样式设置 */
-  .QAGroupPart {
+}
+
+/* 这个是 问题/回答 icon + "问"/"答" 字组合的样式设置 */
+.QAGroupPart {
     display: flex;
     flex-flow: column;
-  }
-  
-  /* 这个是 问题/回答 icon 的样式 */
-  .QABubble {
-    width: 48rpx;
-    height: 48rpx;
-  }
-  
-  /* 这个是 "问"/"答" 字的样式设置 */
-  .QAText {
-    font-size: 27rpx;
-    font-weight: bold;
-    margin-top: -90%;
-    margin-left: 4%;
-  }
-  /* 这个是 问题/回答内容 的样式设置 */
-  .QADescription {
+}
+
+/* 这个是 问题/回答 icon 的样式 */
+.QABubble {
+    /* width: 48rpx;
+    height: 48rpx; */
+    width: 46rpx;
+    height: 42rpx;
+    line-height: 34rpx;
+    border-radius: 24rpx 24rpx 24rpx 0rpx;
+    color: rgba(16, 16, 16, 100);
+    font-size: 24rpx;
+    font-weight: 600;
+    text-align: center;
+    font-family: Arial;
+}
+
+.Question {
+    background-color: rgba(255, 207, 50, 100);
+}
+
+.Answer {
+    color: #FFF;
+    background-color: rgba(54, 133, 96, 100);
+}
+
+/* 这个是 "问"/"答" 字的样式设置 */
+.QAText {
+    position: relative;
+    top: 7rpx;
+}
+
+/* 这个是 问题/回答内容 的样式设置 */
+.QADescription {
     margin-left: 3%;
     text-align: left;
     display: -webkit-box;
-    -webkit-box-orient:vertical;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  
-  /* 这个是 问题图片（组） 的样式设置 */
-  .userQuestionImgs {
+}
+
+/* 这个是 问题图片（组） 的样式设置 */
+.userQuestionImgs {
     width: 100%;
     margin-top: 4%;
     /* background: #444; */
-  }
-  
-  /* 这个是 每个问题图片 的样式设置 */
-  .qImage {
+}
+
+/* 这个是 每个问题图片 的样式设置 */
+.qImage {
     width: 180rpx;
     height: 180rpx;
     margin-left: 6rpx;
     margin-right: 6rpx;
     border: 1px solid #d9d9d9;
     border-radius: 17px;
-  }
-  
-  /* 重设样式 */
-  .answerBT {
+}
+
+/* 重设样式 */
+.answerBT {
     margin-top: 3%;
-  }
-  
-  /* 重设样式 */
-  .answer {
+}
+
+/* 重设样式 */
+.answer {
     margin-top: 5%;
-  }
-  
-  /* 这里是 答主头像 + 答主昵称 组合的样式设置 */
-  .answersBasicInfo {
+}
+
+/* 这里是 答主头像 + 答主昵称 组合的样式设置 */
+.answersBasicInfo {
     display: flex;
     flex-flow: row nowrap;
-  }
-  
-  /* 这里是 答主头像 的样式设置 */
-  .answerAvatar {
+}
+
+/* 这里是 答主头像 的样式设置 */
+.answerAvatar {
     width: 85rpx;
     height: 85rpx;
     margin-top: -5%;
@@ -238,50 +291,50 @@
     border: 2rpx solid #444;
     border-radius: 50%;
     background: #444;
-  }
-  
-  /* 这里是 答主昵称 的样式设置 */
-  .answerNickName {
+}
+
+/* 这里是 答主昵称 的样式设置 */
+.answerNickName {
     font-size: 29rpx;
     margin-top: -3%;
     margin-left: 4%;
-  }
-  
-  /* 这里是 答主回答 的样式设置 */
-  .answerDescription {
+}
+
+/* 这里是 答主回答 的样式设置 */
+.answerDescription {
     margin-top: 1%;
     margin-left: 3%;
     width: 89%;
     font-size: 30rpx;
     text-align: left;
     display: -webkit-box;
-    -webkit-box-orient:vertical;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  
-  .noAnswers {
+}
+
+.noAnswers {
     margin-top: 5%;
     margin-left: 32%;
-    word-break:keep-all;
-    white-space:nowrap;
+    word-break: keep-all;
+    white-space: nowrap;
     font-size: 27rpx;
     color: #555;
     /* width: 500rpx; */
     /* background: #444; */
-  }
-  
-  /* 这里是 更多回答信息 的样式设置 */
-  .moreAnswerInfoView {
+}
+
+/* 这里是 更多回答信息 的样式设置 */
+.moreAnswerInfoView {
     color: #AEAAAA;
     font-size: 27rpx;
     margin-top: 5%;
     margin-left: 7%;
-  }
-  
-  /* 最后的提示信息 */
-  .endTips {
+}
+
+/* 最后的提示信息 */
+.endTips {
     text-align: center;
     font-size: 25rpx;
     color: #AEAAAA;
@@ -290,4 +343,4 @@
     margin-top: 5%;
     margin-right: 4%;
     margin-bottom: 3%;
-  }
+}

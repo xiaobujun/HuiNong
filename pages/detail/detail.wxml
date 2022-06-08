@@ -2,9 +2,9 @@
   <!-- 轮播图 -->
   <view class="banner_container">
     <swiper indicator-dots="{{indicatorDots}}" easing-function="linear" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
-      <block wx:for="{{banner}}" wx:for-item="bannerItem" wx:key="id">
+      <block wx:for="{{arrsUrl}}" wx:for-item="url" wx:key="index">
         <swiper-item>
-          <image src="{{bannerItem.imageSrc}}"></image>
+          <image src="{{url}}" />
         </swiper-item>
       </block>
     </swiper>
@@ -13,19 +13,19 @@
   <view class="result_description">
     <!-- 学名 -->
     <view class="name_container">
-      <text>{{nameOfDisease}}</text>
+      <text>{{info.name}}</text>
     </view>
     <view class="content">
       <text>分类及别名</text>
-      <text>{{classifyDetail}}</text>
+      <text>{{info.alias}}</text>
     </view>
     <view class="content">
       <text>形态特征</text>
-      <text>{{featuresDetail}}</text>
+      <text>{{info.features}}</text>
     </view>
     <view class="content">
       <text>防治方法</text>
-      <text>{{treatmentDetail}}</text>
+      <text>{{info.treatment}}</text>
     </view>
 
   </view>

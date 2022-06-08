@@ -12,6 +12,8 @@ Page({
           '../icons/轮播图测试/background1.jpg',
           '../icons/轮播图测试/background1.jpg',
           '../icons/轮播图测试/background1.jpg',
+          '../icons/轮播图测试/background1.jpg',
+          '../icons/轮播图测试/background1.jpg',
       ]
       },
       {

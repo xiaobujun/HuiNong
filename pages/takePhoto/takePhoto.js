@@ -60,7 +60,7 @@ Page({
     wx.navigateTo({
       url: '../cut/cut',
       success: res => {
-        res.eventChannel.emit('teleUrl  ',{
+        res.eventChannel.emit('teleUrl',{
           url:url
         })
       }

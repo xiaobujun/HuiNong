@@ -18,22 +18,14 @@
 <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
   <view class="crop_container">
     <text class="selectTip">请选择需要识别的作物</text>
-    <block wx:for="{{cropSet}}" wx:for-item="cropItem" wx:for-index="cropIdx" wx:key="id">
-      <ul>
-        <li hover-class="test" bindtap="cropSpecies" value="{{cropItem.crop[0].cropName}}">
-          <image src="{{cropItem.crop[0].cropIcon}}"></image>
-          <text>{{cropItem.crop[0].cropName}}</text>
-        </li>
-        <li bindtap="cropSpecies" value="{{cropItem.crop[1].cropName}}">
-          <image src="{{cropItem.crop[1].cropIcon}}"></image>
-          <text>{{cropItem.crop[1].cropName}}</text>
-        </li>
-        <li bindtap="cropSpecies" value="{{cropItem.crop[2].cropName}}">
-          <image src="{{cropItem.crop[2].cropIcon}}"></image>
-          <text>{{cropItem.crop[2].cropName}}</text>
-        </li>
-      </ul>
-    </block>
-    <view class="next_button">下一步</view>
+    <scroll-view scroll-y="true" class="option_container">
+      <block wx:for="{{cropMap}}" wx:for-item="cropItem" wx:for-index="index" wx:key="index">
+        <view bindtap="cropSpecies" data-sele="{{cropItem.cropId}}" class="option {{sele == index?'select_cate' :''}}">
+          <image class="crop_icon" src="{{cropItem.cropIcon}}" />
+          <text>{{cropItem.cropName}}</text>
+        </view>
+      </block>
+    </scroll-view>
+    <view class="next_button" bindtap="goResult">下一步</view>
   </view>
 </view>

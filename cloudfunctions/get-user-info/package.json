@@ -1,0 +1,16 @@
+{
+  "name": "get-user-info",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "wx-js-utils": "latest",
+    "wx-server-sdk": "^2.6.1"
+  },
+  "keywords": [],
+  "description": ""
+}

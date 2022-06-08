@@ -1,10 +1,12 @@
 <view class="about_container">
   <!-- 头像 -->
   <view class="head_portrait_container">
-    <view class="head_portrait " bindtap="login">
-      <image src="../icons/头像.jpg"></image>
-      <text>长沙小农</text>
+    <view class="head_portrait" >
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <text>{{userInfo.nickName}}</text>
     </view>
+   
   </view>
+  <button bindtap="login">点击授权</button>
 </view>
 <!-- 设置部分 -->

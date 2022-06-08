@@ -1,8 +1,9 @@
 //获取应用实例
-const app = getApp()
+const app = getApp();
 Page({
   data: {
-    src: '',
+    sele: -1,
+    src: "",
     width: 250, //宽度
     height: 250, //高度
     max_width: 300,
@@ -12,115 +13,147 @@ Page({
     limit_move: true, //是否限制移动
     bottom_flag: true,
     isFocus: false,
-    cropSet: [{
-        id: 1,  // 行id
-        crop: [{
-            cropId: 1,  // 图标id
-            cropIcon: '../icons/pesticide.png',
-            cropName: '1'
-          },
-          {
-            cropId: 2,
-            cropIcon: '../icons/photo.png',
-            cropName: '2'
-          },
-          {
-            cropId: 3,
-            cropIcon: '../icons/pepper.png',
-            cropName: '3'
-          }
-        ]
+    cropMap: [
+      {
+        cropId: 0, // 图标id
+        cropIcon: "../icons/pesticide.png",
+        cropName: "虫害",
+      },
+      {
+        cropId: 1,
+        cropIcon: "../icons/photo.png",
+        cropName: "番茄",
+        name: "tomato"
+      },
+      {
+        cropId: 2,
+        cropIcon: "../icons/photo.png",
+        cropName: "草莓",
+        name: "strawberry"
       },{
-        id: 2,
-        crop: [{
-            cropId: 4,
-            cropIcon: '../icons/pesticide.png',
-            cropName: '4'
-          },
-          {
-            cropId: 5,
-            cropIcon: '../icons/photo.png',
-            cropName: '5'
-          },
-          {
-            cropId: 6,
-            cropIcon: '../icons/pepper.png',
-            cropName: '6'
-          }
-        ]
+        cropId: 3, // 图标id
+        cropIcon: "../icons/pesticide.png",
+        cropName: "虫害",
+      },
+      {
+        cropId: 4,
+        cropIcon: "../icons/photo.png",
+        cropName: "番茄",
+        name: "tomato"
+      },
+      {
+        cropId: 5,
+        cropIcon: "../icons/photo.png",
+        cropName: "草莓",
+        name: "strawberry"
       },{
-        id: 3,
-        crop: [{
-            cropId: 7,
-            cropIcon: '../icons/pesticide.png',
-            cropName: '7'
-          },
-          {
-            cropId: 8,
-            cropIcon: '../icons/photo.png',
-            cropName: '8'
-          },
-          {
-            cropId: 9,
-            cropIcon: '../icons/pepper.png',
-            cropName: '9'
-          }
-        ]
+        cropId: 6, // 图标id
+        cropIcon: "../icons/pesticide.png",
+        cropName: "虫害",
+      },
+      {
+        cropId: 7,
+        cropIcon: "../icons/photo.png",
+        cropName: "番茄",
+        name: "tomato"
+      },
+      {
+        cropId: 8,
+        cropIcon: "../icons/photo.png",
+        cropName: "草莓",
+        name: "strawberry"
+      },{
+        cropId: 6, // 图标id
+        cropIcon: "../icons/pesticide.png",
+        cropName: "虫害",
+      },
+      {
+        cropId: 7,
+        cropIcon: "../icons/photo.png",
+        cropName: "番茄",
+        name: "tomato"
+      },
+      {
+        cropId: 8,
+        cropIcon: "../icons/photo.png",
+        cropName: "草莓",
+        name: "strawberry"
       }
     ]
   },
-  onLoad: function (options) {
-    this.cropper = this.selectComponent("#image-cropper");
-    this.setData({
-      src: options.path
+  // 获取传递的临时地址
+  onLoad: async function (options) {
+    this.cropper = await this.selectComponent("#image-cropper");
+    // this.setData({
+    //   src: options.path
+
+    const eventChannel = await this.getOpenerEventChannel();
+    await eventChannel.on("teleUrl", (res) => {
+      this.setData({
+        src: res.url,
+      });
     });
-    if (!options.imgSrc) {
-      this.cropper.upload(); //上传图片
-    }
+  },
+
+  cropperload(e) {
+    console.log("cropper加载完成");
   },
   loadimage(e) {
     wx.hideLoading();
-    console.log('图片');
+    console.log("图片");
     this.cropper.imgReset();
   },
   clickcut(e) {
-    console.log(e.detail);
+    console.log(e.detail.url);
     //图片预览
     wx.previewImage({
       current: e.detail.url, // 当前显示图片的http链接
-      urls: [e.detail.url] // 需要预览的图片http链接列表
-    })
+      urls: [e.detail.url], // 需要预览的图片http链接列表
+    });
+  },
+
+  submit() {
+    this.cropper.getImg((obj) => {
+      app.globalData.imgSrc = obj.url;
+    });
   },
   rotate() {
     //旋转90°
-    this.cropper.setAngle(this.cropper.data.angle += 90);
+    this.cropper.setAngle((this.cropper.data.angle += 90));
   },
 
   //弹框动画
-  showModal: function () {
-    this.cropper.getImg((obj) => {
+  showModal: async function () {
+   
+    await this.cropper.getImg((obj) => {
       app.globalData.imgSrc = obj.url;
-    console.log(app.globalData.imgSrc)
-  });
+      console.log(app.globalData.imgSrc)
+      this.setData({
+        imgSrc:app.globalData.imgSrc
+      })
+    })
     // 显示遮罩
     var animation = wx.createAnimation({
       duration: 400,
       timingFunction: "ease",
-      delay: 0
-    })
-    this.animation = animation
-    animation.translateY(300).step()
+      delay: 0,
+    });
+    this.animation = animation;
+    animation.translateY(300).step();
     this.setData({
       animationData: animation.export(),
       showModalStatus: true,
-      bottom_flag: false
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      this.setData({
-        animationData: animation.export()
-      })
-    }.bind(this), 200)
+      bottom_flag: false,
+    });
+    setTimeout(
+      function () {
+        animation.translateY(0).step();
+        this.setData({
+          animationData: animation.export(),
+        });
+      }.bind(this),
+      200
+    );
   },
   //隐藏弹框
   hideModal: function () {
@@ -128,27 +161,63 @@ Page({
     var animation = wx.createAnimation({
       duration: 400,
       timingFunction: "ease",
-      delay: 0
-    })
-    this.animation = animation
-    animation.translateY(300).step()
+      delay: 0,
+    });
+    this.animation = animation;
+    animation.translateY(300).step();
     this.setData({
       animationData: animation.export(),
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      this.setData({
-        animationData: animation.export(),
-        showModalStatus: false,
-        bottom_flag: true
-      })
-    }.bind(this), 200)
+    });
+    setTimeout(
+      function () {
+        animation.translateY(0).step();
+        this.setData({
+          animationData: animation.export(),
+          showModalStatus: false,
+          bottom_flag: true,
+        });
+      }.bind(this),
+      200
+    );
   },
 
   // 选中效果
-  cropSpecies: function () {
-    this.setData({
-      isFocus: 'gray'
-    })
-  }
-})
+  cropSpecies: async function (e) {
+    let that = this;
+    new Promise((resolve) => {
+      //  console.log(e)
+      let sele = e.currentTarget.dataset.sele;
+      resolve(sele);
+    }).then((sele) => {
+      // console.log(sele)
+      that.setData({
+        sele: sele,
+      });
+
+      console.log("sele", this.data.sele);
+    });
+  },
+  goResult: async function () {
+    let that = this
+    if (this.data.sele > this.data.cropMap || this.data.sele < 0) {
+      wx.showToast({
+        title: "选择不正确",
+        icon: "error",
+      });
+    } else {
+      await wx.navigateTo({
+        url: "../result/result",
+        success: res => {
+          res.eventChannel.emit('paramResult', {
+            imgSrc: this.data.imgSrc,
+            category: this.data.cropMap[this.data.sele].cropName,
+            name: this.data.cropMap[this.data.sele].name,
+          })
+        }
+      });
+    }
+
+    
+    ;
+  },
+});
