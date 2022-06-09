@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"index.js","sourcesContent":["\n\nvar hasSymbols = require('has-symbols');\n\nmodule.exports = function hasToStringTag() {\n\treturn hasSymbols() && typeof Symbol.toStringTag === 'symbol';\n};\n"]}

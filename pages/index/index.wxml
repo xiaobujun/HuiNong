@@ -73,7 +73,7 @@
 									<span class="QAText">问</span>
 								</view>
 							</view>
-							<span class="QADescription">{{info.question.qDescription}}</span>
+							<span class="QADescription" data-id="{{info.id}}" bindtap="toDetails">{{info.question.qDescription}}</span>
 							<!-- "是问题描述" -->
 						</view>
 						<view class="userQuestionImgs" hidden="{{info.question.qImgs >= 0}}">
@@ -113,14 +113,14 @@
 									<span class="answerNickName">{{info.answer.answerNickName}}</span>
 									<!-- 是回答者的昵称 -->
 								</view>
-								<span class="QADescription answerDescription">{{info.answer.aDescription}}</span>
+								<span class="QADescription answerDescription" bindtap="toDetails">{{info.answer.aDescription}}</span>
 								<!-- 是回答的内容 -->
 							</view>
 							<view class="noAnswers answerBT" wx:else>{{noAnsers}}</view>
 							<!-- 没有回答时给出的提示 -->
 						</view>
 						<view class="moreAnswerInfoView">
-							<span class="moreAnswerInfo">{{info.totalView}} 人看过, 共 {{info.totalAnswer}} 条回答 >></span>
+							<span class="moreAnswerInfo" bindtap="toDetails">{{info.totalView}} 人看过, 共 {{info.totalAnswer}} 条回答 >></span>
 						</view>
 					</view>
 					<view class="endTips">{{endTips}}</view>

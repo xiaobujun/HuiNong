@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"index.js","sourcesContent":["\n\nconst pTry = (fn, ...arguments_) => new Promise(resolve => {\n\tresolve(fn(...arguments_));\n});\n\nmodule.exports = pTry;\n// TODO: remove this in the next major version\nmodule.exports.default = pTry;\n"]}

@@ -18,7 +18,7 @@ Page({
     // piazzaContent 的数据目前保留用作测试。 后续按此格式从服务器端获取。
     piazzaContent: [
       {
-        id: 0,    // id 是每张卡片的唯一标识。
+        id: 114514,    // id 是每张卡片的唯一标识。贴子的唯一标识。与详情页的 oid 对应。
         uBasicInfo: {   // uBasicInfo 是用户的基本信息组。
           uid: '15972893',    // uid 是用户的唯一标识。
           nickName: '零点能',   // nickName 是用户的昵称。
@@ -290,5 +290,13 @@ Page({
     if (Math.abs(angle) > slidingRange && endY < startY) {
       this.piazzaScrollMoving({type: 'tap'});
     }
+  },
+  toDetails(res) {
+    console.log("[INFO] toDetails - res: ", res);
+    console.log("已执行转跳");
+    let oid = res.target.dataset.id;
+    wx.navigateTo({
+      url: '../discussionDetails/discussionDetails?id=' + oid,
+    })
   }
 })

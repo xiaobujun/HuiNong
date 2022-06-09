@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+    "usingComponents": {
+        "van-popup": "../../miniprogram_npm/@vant/weapp/popup/index",
+        "van-dialog": "../../miniprogram_npm/@vant/weapp/dialog/index"
+    }
 }
