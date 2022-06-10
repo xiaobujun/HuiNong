@@ -2,8 +2,8 @@
   <!-- 头像 -->
   <view class="head_portrait_container">
     <view class="head_portrait ">
-      <image src="{{userInfo.avatarUrl}}"></image>
-      <text>{{userInfo.nickName}}</text>
+      <image src="{{userInfo.avatar}}"></image>
+      <text>{{userInfo.name}}</text>
     </view>
   </view>
   <button wx:if="{{userInfo==null}}" bindtap="login">登录</button>

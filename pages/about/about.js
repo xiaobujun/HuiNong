@@ -50,23 +50,24 @@ Page({
     wx.getUserProfile({
       desc: '登录',
       success: (res) => {
+        wx.setStorageSync('openid', app.globalData.openid)
         console.log('成功获取到用户信息', res.userInfo)
         var user = res.userInfo
         that.setData({
           userInfo: user
         })
         // 判断先前是否已经注册过
-        wx.cloud.database().collection('users').where({
-          _openid:app.globalData.oppenid
+        wx.cloud.database().collection('user').where({
+          _openid:app.globalData.openid
         }).get({
           success(res) {
             console.log('成功获取到该oppenid下的所有数据', res)
             // 如果未注册则添加到数据库
             if (res.data.length == 0) {
-              wx.cloud.database().collection('users').add({
+              wx.cloud.database().collection('user').add({
                 data: {
-                  avatarUrl: user.avatarUrl,
-                  nickName: user.nickName
+                  avatar: user.avatar,
+                  name: user.name
                 },
                 success(res) {
                   console.log('插入数据成功',res)
