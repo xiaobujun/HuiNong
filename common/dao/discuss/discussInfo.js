@@ -1,9 +1,16 @@
-/**
- *
- * @param {element} element
- * @returns {uBasicInfo, question, answer} discuss
+/*
+ * @Author: Asuka
+ * @Date: 2022-06-10 22:59:49
+ * @LastEditTime: 2022-06-12 04:12:54
  */
-module.exports = async (element) => {
+/**
+ * @description:
+ * @param {*} element
+ * @param {*} an
+ * @param {*} anan
+ * @return {*}
+ */
+module.exports = async (element, an, anan) => {
   // console.log("element", element);
   const discuss = new Object();
 
@@ -18,11 +25,13 @@ module.exports = async (element) => {
   let question = await require("./discussQuestion")(element);
   // console.log("question", question);
   discuss.question = question;
-
-  let answer = await require("./discussAnswer")(element.answerId);
+  let answer;
+  for (let i = 0; i < an; i++) {
+    answer = await require("./discussAnswer")(element.answerId[i]);
+    console.log("answer", answer)
+  }
   discuss.answer = answer;
 
-  console.log("discuss ===> ",discuss)
-  
-  return discuss
+  console.log("discuss",discuss)
+  return discuss;
 };

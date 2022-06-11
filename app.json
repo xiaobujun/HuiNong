@@ -1,23 +1,23 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/discussionDetails/discussionDetails",
+    "pages/magicBox/magicBox",
     "pages/about/about",
- 
-    "pages/test/test",
+    "pages/postQuestions/postQuestions",
     "pages/cut/cut",
-    
-    
+    "pages/detail/detail",
+    "pages/test/test",
+    "pages/drug/drug",
+    "pages/test1/demo",
+    "pages/test1/dd",
+    "pages/takePhoto/takePhoto",
+    "pages/result/result",
     "pages/personInfo/person",
     "pages/history/history",
-    
+
     "pages/setting/seting",
-    "pages/issue/issue",
-    "pages/detail/detail",
-    "pages/feedback/feedback",
-    "pages/drug/drug",
-    "pages/magicBox/magicBox",
-    "pages/takePhoto/takePhoto",
-    "pages/result/result"
+    "pages/issue/issue"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -49,6 +49,5 @@
       }
     ]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

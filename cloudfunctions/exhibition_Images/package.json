@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@cloudbase/manager-node": "^3.12.1",
+    "@vant/weapp": "^1.10.3",
     "wx-server-sdk": "^2.6.1"
   }
 }

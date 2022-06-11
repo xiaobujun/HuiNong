@@ -48,6 +48,8 @@
 					 wx:for-index="subId"
 					 wx:for-item="info"
 					 wx:key="id"
+					bindtap="toDetails"
+					data-infoid = "{{info._id}}"
 					>
 						<view class="userBasicInfo">
 							<image
@@ -73,7 +75,7 @@
 									<span class="QAText">问</span>
 								</view>
 							</view>
-							<span class="QADescription">{{info.question.qDescription}}</span>
+							<span class="QADescription" data-id="{{info.id}}" >{{info.question.qDescription}}</span>
 							<!-- "是问题描述" -->
 						</view>
 						<view class="userQuestionImgs" hidden="{{info.question.qImgs >= 0}}">
@@ -120,7 +122,7 @@
 							<!-- 没有回答时给出的提示 -->
 						</view>
 						<view class="moreAnswerInfoView">
-							<span class="moreAnswerInfo">{{info.totalView}} 人看过, 共 {{info.totalAnswer}} 条回答 >></span>
+							<span class="moreAnswerInfo" bindtap="toDetails">{{info.totalView}} 人看过, 共 {{info.totalAnswer}} 条回答 >></span>
 						</view>
 					</view>
 					<view class="endTips">{{endTips}}</view>
