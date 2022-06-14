@@ -1,17 +1,13 @@
 /*
  * @Author: Asuka
  * @Date: 2022-06-12 01:45:37
- * @LastEditTime: 2022-06-12 02:14:46
+ * @LastEditTime: 2022-06-15 01:35:52
  */
-<<<<<<< HEAD
 /**
  * @description: 
  * @param {*} id
  * @return {*}
  */
-=======
-
->>>>>>> b171eaf9ed74854009567a9bcc638acf2029fcdb
 module.exports = async (id) => {
   let db = wx.cloud.database();
   return await new Promise((resolve, reject) => {
