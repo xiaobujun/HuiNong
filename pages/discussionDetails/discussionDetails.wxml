@@ -1,125 +1,175 @@
 <!--pages/discussionDetails/discussionDetails.wxml-->
 <view class="page">
 	<view class="title">详情</view>
-	<view class="cardDetail">
-		<view class="userBasicInfo">
-			<image
-			 class="piazzaAvatar"
-			 mode="aspectFill"
-			 src="{{discussionContent.uBasicInfo.avatarImgSrc}}"
-			 lazy-load="true"
-			/>
-			<!-- 是用户的头像 -->
-			<view class="userBasicInfoGroupPart">
-				<span class="userNickName">{{discussionContent.uBasicInfo.nickName}}</span>
-				<!-- 是用户昵称 -->
-				<span class="userReleaseDate">{{discussionContent.uBasicInfo.releaseDate}}</span>
-				<!-- 是用户发布时间 -->
-			</view>
-			<span class="crops">
-				{{discussionContent.uBasicInfo.crop}}
-			</span>
-			<!-- 是作物 -->
-		</view>
-		<view class="QA">
-			<view class="QAGroupPart">
-				<view class="QABubble Question">
-					<!-- 问题气泡 -->
-					<span class="QAText">问</span>
-				</view>
-				<!-- 是一个"问"字 -->
-			</view>
-			<span class="QADescription">{{discussionContent.question.qDescription}}</span>
-			<!-- "是问题描述" -->
-		</view>
-		<view class="userQuestionImgs" hidden="{{discussionContent.question.qImgs >= 0}}">
-			<!-- 是问题图片. 有图片则显示,没有则不渲染此项 -->
-			<block wx:for="{{discussionContent.question.qImgs}}" wx:key="index">
+	<view class="svContorl" style="height: {{2*pageHeight}}rpx">
+		<view class="cardDetail" wx:if="{{comments.page.status == 0}}">
+			<view class="userBasicInfo">
 				<image
-				 class="qImage"
+				 class="piazzaAvatar"
 				 mode="aspectFill"
-				 src="{{item}}"
+				 src="{{discussionContent.uBasicInfo.avatarImgSrc}}"
 				 lazy-load="true"
 				/>
-				<!-- 是图片们 -->
-			</block>
-		</view>
-		<view class="QA answerBT">
-			<view class="QAGroupPart answerBT">
-				<view class="QABubble Answer">
-					<!-- 回答气泡 -->
-					<span class="QAText">答</span>
+				<!-- 是用户的头像 -->
+				<view class="userBasicInfoGroupPart">
+					<span class="userNickName">{{discussionContent.uBasicInfo.nickName}}</span>
+					<!-- 是用户昵称 -->
+					<span class="userReleaseDate">{{discussionContent.uBasicInfo.releaseDate}}</span>
+					<!-- 是用户发布时间 -->
 				</view>
-				<!-- 是一个"答"字 -->
+				<span class="crops">
+					{{discussionContent.uBasicInfo.crop}}
+				</span>
+				<!-- 是作物 -->
 			</view>
-			<view class="answer" wx:if="{{discussionContent.totalAnswer != 0}}">
-				<!-- 根据回答数判断,不为零则显示回答;为零则有提示 -->
-				<view class="answersBasicInfo">
-					<image
-					 class="answerAvatar"
-					 mode="aspectFill"
-					 src="{{discussionContent.answer.aAvatarImgSrc}}"
-					 lazy-load="true"
-					/>
-					<!-- 是回答者的头像 -->
-					<span class="answerNickName">{{discussionContent.answer.answerNickName}}</span>
-					<!-- 是回答者的昵称 -->
-				</view>
-				<view class="QADescription answerDescription">{{discussionContent.answer.aDescription}}</view>
-				<!-- 是回答的内容 -->
-			</view>
-			<view wx:else class="noAnswers answerBT">{{noAnsers}}</view>
-			<!-- 没有回答时给出的提示 -->
-		</view>
-		<span class="separator" />
-		<view class="comments" wx:if="{{comments.page.acount > 0}}">
-			<view class="replyAcount">回复（{{comments.page.acount}}）</view>
-			<view class="replies" wx:for="{{comments.commentList}}">
-				<view class="userInfos">
-					<image
-					 class="commentAvatar"
-					 mode="aspectFill"
-					 src="{{item.user.avatarImgSrc}}"
-					 lazy-load="true"
-					/>
-					<!-- 是用户的头像 -->
-					<view class="userTextPart">
-						<view>
-							<text class="nickName">{{item.user.nickName}}</text>
-							<view class="identity" wx:if="{{item.user.identity}}"><text>{{item.user.identity}}</text></view>
-						</view>
-						<text class="releaseDate">{{item.ctime}}</text>
+			<view class="QA">
+				<view class="QAGroupPart">
+					<view class="QABubble Question">
+						<!-- 问题气泡 -->
+						<span class="QAText">问</span>
 					</view>
+					<!-- 是一个"问"字 -->
 				</view>
-				<view class="userComment">
-					<text class="commentContent">{{item.content}}</text>
-				</view>
-				<view class="replyToReply" wx:for="{{item.replies}}">
+				<span class="QADescription">{{discussionContent.question.qDescription}}</span>
+				<!-- "是问题描述" -->
+			</view>
+			<view class="userQuestionImgs" hidden="{{discussionContent.question.qImgs >= 0}}">
+				<!-- 是问题图片. 有图片则显示,没有则不渲染此项 -->
+				<block wx:for="{{discussionContent.question.qImgs}}" wx:key="index">
+					<image
+					 class="qImage"
+					 mode="aspectFill"
+					 src="{{item}}"
+					 lazy-load="true"
+					/>
+					<!-- 是图片们 -->
+				</block>
+			</view>
+			<view class="like">
+				<i class="{{discussionContent.question.likeStatus ? 'liked' : 'unlike'}}" data-part="question" bindtap="addLike" />
+				<text>{{discussionContent.question.liked}}</text>
+			</view>
+	
+			<span class="separator" />
+			<view class="comments" wx:if="{{ answerLength > 0}}">
+				<view class="replyAcount">回复（{{answerLength}}）</view>
+				<view class="replies" wx:for="{{discussionContent.answer}}" wx:key="{{discussionContent.answer._id}}">
 					<view class="userInfos">
 						<image
-						 class="commentAvatar rtrAvatar"
+						 class="commentAvatar"
 						 mode="aspectFill"
-						 src="{{item.user.avatarImgSrc}}"
+						 src="{{item.aAvatarImgSrc}}"
 						 lazy-load="true"
 						/>
+						<!-- 是用户的头像 -->
 						<view class="userTextPart">
 							<view>
-							<text class="nickName">{{item.user.nickName}}</text>
-							<view class="identity" wx:if="{{item.user.identity}}"><text>{{item.user.identity}}</text></view>
-						</view>
+								<text class="nickName">{{item.answerNickName}}</text>
+								<view class="identity" wx:if="{{item.user.identity}}">
+									<text>{{item.identity}}</text>
+								</view>
+							</view>
 							<text class="releaseDate">{{item.ctime}}</text>
+						</view>
+						<view class="likeAndReply">
+							<view class="like IRrplyLikes">
+								<i
+								 class="{{item.likeStatus ? 'liked' : 'unlike'}}"
+								 data-item="{{item.likeStatus}}"
+								 data-index="{{index}}"
+								 data-rpid="{{item.rpid}}"
+								 data-part="comments"
+								 bindtap="addLike"
+								/>
+								<text>{{item.liked}}</text>
+							</view>
+							<text>回复</text>
 						</view>
 					</view>
 					<view class="userComment">
-						<text class="commentContent rtrCommentContent">{{item.content}}</text>
+						<text class="commentContent">{{item.aDescription}}</text>
 					</view>
+					<view class="replyToReply" wx:for="{{item.replies}}">
+						<view class="userInfos">
+							<image
+							 class="commentAvatar rtrAvatar"
+							 mode="aspectFill"
+							 src="{{item.user.avatarImgSrc}}"
+							 lazy-load="true"
+							/>
+							<view class="userTextPart">
+								<view>
+									<text class="nickName">{{item.user.nickName}}</text>
+									<view class="identity" wx:if="{{item.user.identity}}">
+										<text>{{item.user.identity}}</text>
+									</view>
+								</view>
+								<text class="releaseDate RTRRD">{{item.ctime}}</text>
+							</view>
+							<view class="likeAndReply">
+								<view class="like IRrplyLikes">
+									<i
+									 class="{{item.likeStatus ? 'liked' : 'unlike'}}"
+									 data-item="{{item}}"
+									 data-fid="{{item.fid}}"
+									 data-index="{{index}}"
+									 data-rpid="{{item.rpid}}"
+									 data-part="replies"
+									 bindtap="addLike"
+									/>
+									<text>{{item.liked}}</text>
+								</view>
+								<text>回复</text>
+							</view>
+						</view>
+						<view class="userComment">
+							<text class="commentContent rtrCommentContent">{{item.content}}</text>
+						</view>
+					</view>
+					<span class="separator inReply" />
 				</view>
-				<span class="separator inReply" />
+				<text class="repliesEnd">评论到底了哦～</text>
 			</view>
-			<text class="repliesEnd">评论到底了哦～</text>
+			<view wx:else>暂无评论</view>
 		</view>
-		<view wx:else>暂无评论</view>
+		<view class="NotFound" wx:elif="{{comments.page.status == -404}}">
+			<view>非常抱歉</view>
+			<view>本讨论可能因为以下原因导致无法正常查看</view>
+			<view>讨论链接失效</view>
+			<view>讨论内容不和谐</view>
+			<view>楼主自主删除</view>
+			<view>侵犯他人著作权</view>
+			<view>——慧农道团队</view>
+		</view>
 	</view>
 
+	<view class="sendComment" hidden="{{comments.page.status != 0}}">
+		<text bindtap="setPopup">在此留下你的想法吧</text>
+		<text>发布</text>
+	</view>
+	<van-dialog id="van-dialog" />
+	<van-popup
+	 custom-class="vanpopup"
+	 round
+	 show="{{showPop}}"
+	 bind:click-overlay="setPopup"
+	 position="bottom"
+	 custom-style="height: 50%"
+	 close-on-click-overlay="true"
+	>
+		<view>
+			<textarea
+			 placeholder="在此留下你的想法吧"
+			 focus="true"
+			 auto-focus="true"
+			 auto-height="true"
+			 adjust-position="true"
+			 maxlength="-1"
+			 value="{{textareaValue}}"
+			 bindinput="taInput"
+			/>
+			<text bindtap="pubComment">发布</text>
+		</view>
+	</van-popup>
 </view>
 
