@@ -1,7 +1,7 @@
 /*
  * @Author: Asuka
  * @Date: 2022-06-10 22:59:49
- * @LastEditTime: 2022-06-12 04:12:54
+ * @LastEditTime: 2022-06-15 01:18:18
  */
 /**
  * @description:
@@ -25,11 +25,11 @@ module.exports = async (element, an, anan) => {
   let question = await require("./discussQuestion")(element);
   // console.log("question", question);
   discuss.question = question;
-  let answer;
+  let answer = Array();
   for (let i = 0; i < an; i++) {
-    answer = await require("./discussAnswer")(element.answerId[i]);
-    console.log("answer", answer)
+    answer.push( await require("./discussAnswer")(element.answerId[i]));
   }
+  console.log("answer", answer)
   discuss.answer = answer;
 
   console.log("discuss",discuss)

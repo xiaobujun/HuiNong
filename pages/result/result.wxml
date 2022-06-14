@@ -1,9 +1,6 @@
+
 <!-- 识别结果页面 -->
 <view class="result_pages">
-	<view class="topBar">
-		<image class="returnArrow" src="../icons/arrowLeft.png" mode="aspectFill" />
-		<span>识别结果</span>
-	</view>
 	<!-- 显示拍照的图片 -->
 	<view class="reuslt_image">
 		<image src="{{imgSrc}}" />
@@ -23,7 +20,7 @@
 							<image src="{{item.image}}" mode="aspectFill" lazy-load="true" />
 							<text id="descriptions">{{item.description}}</text>
 						</view>
-						<text id="accuracy">准确率：{{item.score}}</text>
+						<text id="accuracy">{{item.score}}</text>
 						<span id="more">详情>></span>
 
 					</view>

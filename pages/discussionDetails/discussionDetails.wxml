@@ -51,22 +51,22 @@
 			</view>
 	
 			<span class="separator" />
-			<view class="comments" wx:if="{{comments.page.acount > 0}}">
-				<view class="replyAcount">回复（{{comments.page.acount}}）</view>
-				<view class="replies" wx:for="{{comments.commentList}}">
+			<view class="comments" wx:if="{{ answerLength > 0}}">
+				<view class="replyAcount">回复（{{answerLength}}）</view>
+				<view class="replies" wx:for="{{discussionContent.answer}}" wx:key="{{discussionContent.answer._id}}">
 					<view class="userInfos">
 						<image
 						 class="commentAvatar"
 						 mode="aspectFill"
-						 src="{{item.user.avatarImgSrc}}"
+						 src="{{item.aAvatarImgSrc}}"
 						 lazy-load="true"
 						/>
 						<!-- 是用户的头像 -->
 						<view class="userTextPart">
 							<view>
-								<text class="nickName">{{item.user.nickName}}</text>
+								<text class="nickName">{{item.answerNickName}}</text>
 								<view class="identity" wx:if="{{item.user.identity}}">
-									<text>{{item.user.identity}}</text>
+									<text>{{item.identity}}</text>
 								</view>
 							</view>
 							<text class="releaseDate">{{item.ctime}}</text>
@@ -87,7 +87,7 @@
 						</view>
 					</view>
 					<view class="userComment">
-						<text class="commentContent">{{item.content}}</text>
+						<text class="commentContent">{{item.aDescription}}</text>
 					</view>
 					<view class="replyToReply" wx:for="{{item.replies}}">
 						<view class="userInfos">

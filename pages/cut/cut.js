@@ -16,67 +16,69 @@ Page({
     cropMap: [
       {
         cropId: 0, // 图标id
-        cropIcon: "../icons/pesticide.png",
+        cropIcon: "../icons/虫害.png",
         cropName: "虫害",
+        name: "pestis"
       },
       {
         cropId: 1,
-        cropIcon: "../icons/photo.png",
+        cropIcon: "../icons/番茄.png",
         cropName: "番茄",
         name: "tomato"
       },
       {
         cropId: 2,
-        cropIcon: "../icons/photo.png",
+        cropIcon: "../icons/草莓.png",
         cropName: "草莓",
         name: "strawberry"
       },{
         cropId: 3, // 图标id
-        cropIcon: "../icons/pesticide.png",
-        cropName: "虫害",
+        cropIcon: "../icons/豆角.png",
+        cropName: "豆角",
+
       },
       {
         cropId: 4,
-        cropIcon: "../icons/photo.png",
-        cropName: "番茄",
+        cropIcon: "../icons/白菜.png",
+        cropName: "白菜",
         name: "tomato"
       },
       {
         cropId: 5,
-        cropIcon: "../icons/photo.png",
-        cropName: "草莓",
+        cropIcon: "../icons/玉米.png",
+        cropName: "玉米",
         name: "strawberry"
       },{
         cropId: 6, // 图标id
-        cropIcon: "../icons/pesticide.png",
-        cropName: "虫害",
+        cropIcon: "../icons/大蒜.png",
+        cropName: "大蒜",
       },
       {
         cropId: 7,
-        cropIcon: "../icons/photo.png",
-        cropName: "番茄",
+        cropIcon: "../icons/茄子.png",
+        cropName: "茄子",
         name: "tomato"
       },
       {
         cropId: 8,
-        cropIcon: "../icons/photo.png",
-        cropName: "草莓",
+        cropIcon: "../icons/南瓜.png",
+        cropName: "南瓜",
         name: "strawberry"
       },{
-        cropId: 6, // 图标id
-        cropIcon: "../icons/pesticide.png",
-        cropName: "虫害",
+        cropId: 9, // 图标id
+        cropIcon: "../icons/辣椒.png",
+        cropName: "辣椒",
       },
       {
-        cropId: 7,
-        cropIcon: "../icons/photo.png",
-        cropName: "番茄",
+        cropId: 10,
+        cropIcon: "../icons/萝卜.png",
+        cropName: "萝卜",
         name: "tomato"
       },
       {
-        cropId: 8,
-        cropIcon: "../icons/photo.png",
-        cropName: "草莓",
+        cropId: 11,
+        cropIcon: "../icons/番薯.png",
+        cropName: "番薯",
         name: "strawberry"
       }
     ]

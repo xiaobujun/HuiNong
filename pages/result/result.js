@@ -11,8 +11,7 @@ Page({
 
   goDetail: function (e) {
     let that = this
-    console.log('hello')
-    console.log('goDetail', e.currentTarget.dataset.info.info)
+  
     wx.navigateTo({
       url: "../detail/detail",
       success: res => {
@@ -24,6 +23,11 @@ Page({
     })
   },
   onLoad: async function (options) {
+
+    wx.showLoading({
+      title: '加载中',
+    })
+    
     let that = await this
     const eventChannel = await this.getOpenerEventChannel();
     //  获取数据
@@ -51,18 +55,20 @@ Page({
 
     let get_url = require("../../common/parameterAPI/EasyDL")
     let ll = await get_url(this.data.category)
+    console.log("ll ====> ", ll)
     let result = await require("../../common/recognition/PlantViruses")(that.data.base64, ll.API_URL, 3)
     let fResult = require("../../common/formatResultsScore.js")
     let fresult = await fResult(result)
 
+    console.log(fresult,"fresult")
     const db = await wx.cloud.database()
-    console.log('ashduoshadiosahdiosah')
     await fresult.forEach(element => {
       db.collection(that.data.name).where({
           name: element.name
         })
         .get({
           success: function (res) {
+            console.log(res)
             // res.data 是包含以上定义的两条记录的数组
             element.info = res.data[0]
             element.description = res.data[0].features
@@ -71,7 +77,7 @@ Page({
             that.setData({
               results: fresult
             })
-
+            wx.hideLoading()
           },
           fail: res => {
             console.log(res)

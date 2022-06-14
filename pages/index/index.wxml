@@ -34,7 +34,7 @@
 		<view>
 			<scroll-view
 			 id="piazzaScroll"
-			 class="scrollView"
+			class="scrollView"
 			 scroll-y="true"
 			 style="height: calc({{scrollViewHeight}}vh - {{tabBarHeight}}rpx);"
 			 bindscroll="piazzaScrollMoving"
@@ -82,14 +82,14 @@
 							<!-- 是问题图片. 有图片则显示,没有则不渲染此项 -->
 							<span
 							 wx:for="{{info.question.qImgs}}"
-							 wx:for-index="subId"
+								 wx:for-index="subId"
 							 wx:for-item="img"
 							 wx:key="src"
 							>
 								<image
 								 class="qImage"
 								 mode="aspectFill"
-								 src="{{img.src}}"
+								 src="{{img}}"
 								 lazy-load="true"
 								/>
 								<!-- 是图片们 -->
@@ -108,14 +108,14 @@
 									<image
 									 class="answerAvatar"
 									 mode="aspectFill"
-									 src="{{info.answer.aAvatarImgSrc}}"
+									 src="{{info.answer[0].aAvatarImgSrc}}"
 									 lazy-load="true"
 									/>
 									<!-- 是回答者的头像 -->
-									<span class="answerNickName">{{info.answer.answerNickName}}</span>
+									<span class="answerNickName">{{info.answer[0].answerNickName}}</span>
 									<!-- 是回答者的昵称 -->
 								</view>
-								<span class="QADescription answerDescription">{{info.answer.aDescription}}</span>
+								<span class="QADescription answerDescription">{{info.answer[0].aDescription}}</span>
 								<!-- 是回答的内容 -->
 							</view>
 							<view class="noAnswers answerBT" wx:else>{{noAnsers}}</view>

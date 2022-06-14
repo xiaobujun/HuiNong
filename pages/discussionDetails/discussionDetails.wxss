@@ -411,7 +411,7 @@
     height: 19px; */
     line-height: 100%;
     color: rgba(16, 16, 16, 100);
-    font-size: 18rpx;
+    font-size: 30rpx;
     text-align: left;
     font-family: SourceHanSansSC-regular;
 }

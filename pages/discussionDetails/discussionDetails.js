@@ -336,9 +336,11 @@ Page({
 
     // TODO 加载详情页数据
     let discuss = require("../../common/dao/discuss/discuss");
-    let discuss_info = await discuss(1, 0, 999, 999, this.data._id);
+    let discuss_info = await discuss(1, 0, 2, 2, this.data._id);
     console.log("xxxx =>>", discuss_info);
-
+    this.setData({
+      answerLength: discuss_info[0].answer.length
+    })
     this.setData({
       discussionContent: discuss_info[0],
     });
