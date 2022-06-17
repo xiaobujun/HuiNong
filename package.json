@@ -18,6 +18,7 @@
   "homepage": "https://github.com/xiaobujun/HuiNong#readme",
   "description": "",
   "dependencies": {
+    "eslint": "^8.5.0",
     "@vant/weapp": "^1.10.3"
   }
 }

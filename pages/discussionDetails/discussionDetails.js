@@ -1,5 +1,6 @@
 // pages/discussionDetails/discussionDetails.js
 import Dialog from "../../miniprogram_npm/@vant/weapp/dialog/dialog";
+import { _addLike } from "../../common/dao/discuss/LikeOnDiscuss/AddLike";
 Page({
   textareaValue: "",
   data: {
@@ -168,6 +169,9 @@ Page({
     // }
   },
   addLike(res) {
+    console.log("addLike 被触发 ==> ", res);
+    let _id = res.currentTarget.dataset._id;
+    // _addLike("b69f67c06290d17804d79a8046659a3a")
     let likeFlag,
       operator = 1;
     switch (res.target.dataset.part) {
@@ -180,17 +184,8 @@ Page({
               this.data.discussionContent.question.liked + 1 * operator,
             "discussionContent.question.likeStatus": !likeFlag,
           });
-        }
-        break;
-      case "answer":
-        {
-          likeFlag = this.data.discussionContent.answer.likeStatus;
-          if (likeFlag) operator = -1;
-          this.setData({
-            "discussionContent.answer.liked":
-              this.data.discussionContent.answer.liked + 1 * operator,
-            "discussionContent.answer.likeStatus": !likeFlag,
-          });
+
+          _addLike(_id);
         }
         break;
       case "comments":
@@ -203,6 +198,8 @@ Page({
               this.data.comments.commentList[index].liked + 1 * operator,
             [`comments.commentList[${index}].likeStatus`]: !likeFlag,
           });
+
+          _addLike(_id, "discussionAnswer");
         }
         break;
       case "replies":
@@ -339,8 +336,8 @@ Page({
     let discuss_info = await discuss(1, 0, 2, 2, this.data._id);
     console.log("xxxx =>>", discuss_info);
     this.setData({
-      answerLength: discuss_info[0].answer.length
-    })
+      answerLength: discuss_info[0].answer.length,
+    });
     this.setData({
       discussionContent: discuss_info[0],
     });

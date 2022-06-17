@@ -12,10 +12,10 @@
 				/>
 				<!-- 是用户的头像 -->
 				<view class="userBasicInfoGroupPart">
-					<span class="userNickName">{{discussionContent.uBasicInfo.nickName}}</span>
 					<!-- 是用户昵称 -->
-					<span class="userReleaseDate">{{discussionContent.uBasicInfo.releaseDate}}</span>
+					<span class="userNickName">{{discussionContent.uBasicInfo.nickName}}</span>
 					<!-- 是用户发布时间 -->
+					<span class="userReleaseDate">{{discussionContent.uBasicInfo.releaseDate}}</span>
 				</view>
 				<span class="crops">
 					{{discussionContent.uBasicInfo.crop}}
@@ -46,13 +46,14 @@
 				</block>
 			</view>
 			<view class="like">
-				<i class="{{discussionContent.question.likeStatus ? 'liked' : 'unlike'}}" data-part="question" bindtap="addLike" />
+				<i class="{{discussionContent.question.likeStatus ? 'liked' : 'unlike'}}" data-_id="{{discussionContent._id}}" data-part="question" bindtap="addLike" />
 				<text>{{discussionContent.question.liked}}</text>
 			</view>
 	
 			<span class="separator" />
 			<view class="comments" wx:if="{{ answerLength > 0}}">
 				<view class="replyAcount">回复（{{answerLength}}）</view>
+				<!-- 打印 answer 数组内容 -->
 				<view class="replies" wx:for="{{discussionContent.answer}}" wx:key="{{discussionContent.answer._id}}">
 					<view class="userInfos">
 						<image
@@ -72,6 +73,7 @@
 							<text class="releaseDate">{{item.ctime}}</text>
 						</view>
 						<view class="likeAndReply">
+							<!-- 点赞 -->
 							<view class="like IRrplyLikes">
 								<i
 								 class="{{item.likeStatus ? 'liked' : 'unlike'}}"
@@ -79,17 +81,20 @@
 								 data-index="{{index}}"
 								 data-rpid="{{item.rpid}}"
 								 data-part="comments"
+								 data-_id="{{item._id}}"
 								 bindtap="addLike"
 								/>
 								<text>{{item.liked}}</text>
 							</view>
+							<!-- 回复功能 -->
 							<text>回复</text>
 						</view>
 					</view>
 					<view class="userComment">
 						<text class="commentContent">{{item.aDescription}}</text>
 					</view>
-					<view class="replyToReply" wx:for="{{item.replies}}">
+					<!-- commit 功能 -->
+					<view class="replyToReply" wx:for="{{item.replies}}" >
 						<view class="userInfos">
 							<image
 							 class="commentAvatar rtrAvatar"
@@ -106,6 +111,7 @@
 								</view>
 								<text class="releaseDate RTRRD">{{item.ctime}}</text>
 							</view>
+							<!-- 点赞功能 -->
 							<view class="likeAndReply">
 								<view class="like IRrplyLikes">
 									<i
@@ -115,6 +121,7 @@
 									 data-index="{{index}}"
 									 data-rpid="{{item.rpid}}"
 									 data-part="replies"
+									 data-_id="{{item._id}}"
 									 bindtap="addLike"
 									/>
 									<text>{{item.liked}}</text>

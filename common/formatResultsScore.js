@@ -9,6 +9,7 @@ function formatScore(results){
   console.log('results',results)
   let arr = results.filter(item => item.score > 0.05)
   arr.forEach((e) => {
+    
     e.score = percent(e.score)
   });
   console.log("arr",arr)

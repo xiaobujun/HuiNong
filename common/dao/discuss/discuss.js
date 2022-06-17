@@ -1,7 +1,7 @@
 /*
  * @Author: Asuka
  * @Date: 2022-06-10 22:59:49
- * @LastEditTime: 2022-06-12 03:49:50
+ * @LastEditTime: 2022-06-18 02:44:20
  */
 
 /**
@@ -25,7 +25,7 @@ module.exports = async (n, id = 0, an = null, anan = null, _id = null) => {
     console.log("[DBS] ===> ", dbs.data[i]);
     discuss._id = dbs.data[i]._id;
     discuss.id = await id;
-    id = await id + 1;
+    id = (await id) + 1;
     // console.log("Main discuss",discuss)
     piazzaContent.push(discuss);
   }

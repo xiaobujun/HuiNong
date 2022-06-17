@@ -61,7 +61,7 @@ Page({
       },
       {
         cropId: 8,
-        cropIcon: "../icons/南瓜.png",
+      cropIcon: "../icons/南瓜.png",
         cropName: "南瓜",
         name: "strawberry"
       },{
