@@ -3,5 +3,10 @@
   "disableScroll": true,
   "navigationBarBackgroundColor": "#292929",
   "navigationBarTextStyle": "white",
-  "backgroundColor": "#292929"
+  "backgroundColor": "#292929",
+  "usingComponents": {
+    "van-card": "../../miniprogram_npm/@vant//weapp/card/index",
+    "van-empty": "../../miniprogram_npm/@vant/weapp/empty/index"
+  }
+  
 }

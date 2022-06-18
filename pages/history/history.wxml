@@ -9,19 +9,17 @@
     <swiper current="{{item}}" bindchange="changeTab">
       <!-- 病害记录 -->
       <swiper-item>
-      <!--  -->
         <scroll-view class="disease_content" scroll-y="true">
-          <block wx:for="{{diease}}" wx:key="id">
-            <view class="text">
-              {{item.date}}
-            </view>
-            <!-- 每条记录为一行 -->
-            <scroll-view class="image_content" scroll-x="true">
-              <block wx:for="{{item.dieaseImage}}" wx:for-item="dieasePhoto" wx:key="index">
-                <image class="dieaseImage" src="{{dieasePhoto}}"></image>
-              </block>
-            </scroll-view>
-            <!-- 每行记录结束 -->
+          <van-empty wx-if="{{History.length === 0}}" description="没有历史记录" />
+          <block wx:for="{{History}}" wx:key="index">
+            <van-card
+              data-answer="false"
+              data-_id="{{item._id}}"
+              desc="{{item.title}}"
+              title="{{item.date}}"
+              thumb="{{item.cover}}"
+              bindtap="GoDetail"
+            /> 
           </block>
         </scroll-view>
       </swiper-item>
@@ -30,6 +28,17 @@
         <scroll-view>
           <block>
             <view>
+              <van-empty wx-if="{{HistoryAnswer.length === 0}}" description="没有历史记录" />
+              <block wx:for="{{HistoryAnswer}}" wx:key="index">
+                <van-card
+                  data-answer="true"
+                  data-_id="{{item._id}}"
+                  desc="{{item.title}}"
+                  title="{{item.date}}"
+                  thumb="{{item.cover}}"
+                  bindtap="GoDetail"
+                /> 
+            </block>
             </view>
           </block>
         </scroll-view>

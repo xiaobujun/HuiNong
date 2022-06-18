@@ -2,6 +2,7 @@
 <view class="page">
 	<view class="title">详情</view>
 	<view class="svContorl" style="height: {{2*pageHeight}}rpx">
+	<!-- 用户提问模块 -->
 		<view class="cardDetail" wx:if="{{comments.page.status == 0}}">
 			<view class="userBasicInfo">
 				<image
@@ -42,12 +43,14 @@
 					 src="{{item}}"
 					 lazy-load="true"
 					/>
-					<!-- 是图片们 -->
 				</block>
 			</view>
+
 			<view class="like">
 				<i class="{{discussionContent.question.likeStatus ? 'liked' : 'unlike'}}" data-_id="{{discussionContent._id}}" data-part="question" bindtap="addLike" />
 				<text>{{discussionContent.question.liked}}</text>
+
+				<text style="margin-left ='20rpx'">回复</text>
 			</view>
 	
 			<span class="separator" />

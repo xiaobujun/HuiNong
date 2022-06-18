@@ -128,7 +128,7 @@ Page({
         break;
         case 4:
         wx.navigateTo({
-          url: '../setting/seting',
+          url: '../setting/setting',
         })
         break;
     }
