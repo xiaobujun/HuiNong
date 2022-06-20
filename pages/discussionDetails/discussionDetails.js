@@ -170,6 +170,7 @@ Page({
   },
   addLike(res) {
     console.log("addLike 被触发 ==> ", res);
+    // 点赞讨论数据表的 _id
     let _id = res.currentTarget.dataset._id;
     // _addLike("b69f67c06290d17804d79a8046659a3a")
     let likeFlag,

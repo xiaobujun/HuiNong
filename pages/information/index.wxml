@@ -1,0 +1,37 @@
+<view>
+    <van-tabs active="{{ active }}" color="#59C291">
+        <!-- 新闻模块 -->
+        <van-tab title="文章">
+            <!-- 文章显示 -->
+            <scroll-view scroll-y="true">
+                <!-- 文章card -->
+                <block wx:for="{{pages}}" wx:key="index" >
+                    <van-card
+                        desc-class = "van-multi-ellipsis--l3"
+                        desc="{{item.desc}}"
+                        title="{{item.title}}"
+                        thumb="{{item.thumb}}"
+                        data-src = "{{item.src}}"
+                        bindtap = "toDetail"
+                    />
+                </block>
+            </scroll-view>
+        </van-tab>
+
+        <!-- 种植技巧模块 -->
+        <van-tab title="视频">
+            <scroll-view scroll-y="true">
+                <block wx:for="{{videos}}" wx:key="index" >
+                    <van-card
+                        desc-class = "van-multi-ellipsis--l3"
+                        desc="{{item.desc}}"
+                        title="{{item.title}}"
+                        thumb="{{item.thumb}}"
+                        data-src = "{{item.src}}"
+                        bindtap = "toDetail"
+                    />
+                </block> 
+            </scroll-view>
+        </van-tab>
+    </van-tabs>
+</view>

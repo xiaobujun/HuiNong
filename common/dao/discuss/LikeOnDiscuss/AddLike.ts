@@ -13,7 +13,7 @@
  * @return {*}
  */
 export function _addLike(_id: string, db_name: string = "discussion"): void {
-    console.log("_addLike 被调用了", _id, db_name);
+    // console.log("_addLike 被调用了", _id, db_name);
     
     let db = wx.cloud.database();
 

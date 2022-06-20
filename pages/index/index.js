@@ -38,7 +38,6 @@ Page({
 
     let arr = await discuss(4, this.data.id, 1);
 
-    console.log("dhasxxxxxxx=========", arr);
 
     that.setData({
       piazzaContent: arr,

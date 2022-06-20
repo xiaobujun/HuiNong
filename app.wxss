@@ -1,4 +1,5 @@
 /**app.wxss**/
+@import './miniprogram_npm/@vant/weapp/common/index.wxss'
 /**
   *搜索部分
   */
