@@ -1,0 +1,45 @@
+<!-- 发布页面 -->
+<view class="post_container">
+  <!-- 标题 -->
+  <view class="formItem">
+    <van-field size="large" required="true" model:value="{{title}}" maxlength="15" placeholder="请输入标题(不超过15字)" label="标题：" />
+  </view>
+  <!-- 分类 -->
+  <view class="formItem">
+    <picker bindchange="categoryPicker" value="{{index}}" range="{{species}}">
+    <van-field
+    size="large"
+    required="true"
+    placeholder="点我进行选择"
+    label="类别："
+    model:value="{{species[index]}}" 
+    readonly
+  />
+  </picker>
+  </view>
+  <!-- 描述 -->
+  <view class="formItem">
+    <van-field
+    size="large"
+    required="true"
+    type="textarea"
+    label="描述："
+    autosize
+    maxlength="200"
+    placeholder="请概述下作物病虫害的特征"
+    model:value="{{description}}" 
+  />
+  </view>
+  <!-- 图片 -->
+  <view class="formItem">
+    <van-cell title-class="title" size="large" required="true" title="请添加图片：" border="{{false}}"/>
+    <van-uploader style="margin-left:3%;" preview-size="{{previewSize}}" max-count="{{maxCount}}" file-list="{{fileList}}" bind:delete="delete" bind:after-read="afterRead" />
+    <view class="tip">注：点击图片可放大预览</view>
+  </view>
+  <!-- 提交按钮 -->
+  <view class="formItem">
+  <view class="post_button" bindtap="postForm">
+    <text>发布</text>
+  </view>
+</view>
+</view>

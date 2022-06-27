@@ -1,15 +1,17 @@
 {
   "pages": [
-    "pages/information/index",
     "pages/index/index",
+    "pages/postIssue/post",
+    
+    "pages/postQuestions/postQuestions",
+    "pages/information/index",
+    "pages/talkIssue/index",
     "pages/discussionDetails/discussionDetails",
     "pages/magicBox/magicBox",
     "pages/about/about",
-    "pages/postQuestions/postQuestions",
     "pages/cut/cut",
     "pages/detail/detail",
     "pages/test/test",
-    "pages/drug/drug",
     "pages/test1/demo",
     "pages/test1/dd",
     "pages/takePhoto/takePhoto",

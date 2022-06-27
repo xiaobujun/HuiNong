@@ -34,12 +34,12 @@ Page({
       }
     ]
   },
-
   onLoad:function() {
     console.log('全局传过来的',app.globalData.userInfo)
     this.setData({
       userInfo:app.globalData.userInfo
     })
+    
   },
   /**
    * 用户登录
@@ -50,7 +50,6 @@ Page({
     wx.getUserProfile({
       desc: '登录',
       success: (res) => {
-        wx.setStorageSync('openid', app.globalData.openid)
         console.log('成功获取到用户信息', res.userInfo)
         var user = res.userInfo
         that.setData({
@@ -66,8 +65,8 @@ Page({
             if (res.data.length == 0) {
               wx.cloud.database().collection('user').add({
                 data: {
-                  avatar: user.avatar,
-                  name: user.name
+                  avatar: user.avatarUrl,
+                  name: user.nickName
                 },
                 success(res) {
                   console.log('插入数据成功',res)

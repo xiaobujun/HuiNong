@@ -1,0 +1,13 @@
+<view class="talkIssue">
+    <van-action-sheet
+    show="{{ show }}"
+    actions="{{ actions }}"
+    bind:close="onClose"
+    bind:select="onSelect"
+    />
+    
+    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+
+    <van-panel title="种类" status="{{status}}" bindtap="onSwitch"/>
+
+</view>

@@ -1,0 +1,31 @@
+.post_container{
+display: flex;
+flex-direction: column;
+}
+.formItem:nth-child(5){
+  margin: 20px auto;
+}
+
+.van-field__label{
+  color: black;
+  font-weight: bold;
+}
+.title{
+  color: #646566;
+  font-weight: bold;
+}
+.tip{
+  margin-left: 3%;
+  font-size: 22rpx;
+  color: gray;
+}
+.post_button{
+  width: 240rpx;
+  height: 80rpx;
+  border-radius: 48rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: aliceblue;
+  font-weight: bold;
+  background-color: #61D2A9;
+}
