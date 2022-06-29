@@ -1,24 +1,17 @@
 {
   "pages": [
+    "pages/my/my",
+    "pages/cut/cut",
     "pages/information/index",
     "pages/index/index",
-    "pages/discussionDetails/discussionDetails",
-    "pages/magicBox/magicBox",
+    
+    "pages/pageDetail/index",
     "pages/about/about",
-    "pages/postQuestions/postQuestions",
-    "pages/cut/cut",
+   
     "pages/detail/detail",
-    "pages/test/test",
-    "pages/drug/drug",
-    "pages/test1/demo",
-    "pages/test1/dd",
     "pages/takePhoto/takePhoto",
     "pages/result/result",
-    "pages/personInfo/person",
-    "pages/history/history",
-    "pages/setting/seting",
-    "pages/issue/issue",
-    "pages/pageDetail/index"
+    "pages/history/history"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,22 +26,33 @@
       {
         "pagePath": "pages/information/index",
         "text": "资讯",
-        "iconPath": "pages/icons/magicBox.png",
-        "selectedIconPath": "pages/icons/magicBoxSelected.png"
+        "iconPath": "pages/icons/tabbar/information.png",
+        "selectedIconPath": "pages/icons/tabbar/informationSelected.png"
       },
       {
         "pagePath": "pages/index/index",
-        "text": "发布",
-        "iconPath": "pages/icons/post.png",
-        "selectedIconPath": "pages/icons/postSelected.png"
+        "text": "识别",
+        "iconPath": "pages/icons/tabbar/recognize.png",
+        "selectedIconPath": "pages/icons/tabbar/recognizeSelected.png"
       },
       {
-        "pagePath": "pages/about/about",
+        "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "pages/icons/about.png",
-        "selectedIconPath": "pages/icons/aboutSelected.png"
+        "iconPath": "pages/icons/tabbar/about.png",
+        "selectedIconPath": "pages/icons/tabbar/aboutSelected.png"
       }
     ]
+  },
+  "usingComponents": {
+    "van-cell-group":"miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-cell":"miniprogram_npm/@vant//weapp/cell/index",
+    "van-card": "miniprogram_npm/@vant//weapp/card/index",
+    "van-empty": "miniprogram_npm/@vant/weapp/empty/index",
+    "van-tab": "miniprogram_npm/@vant/weapp/tab/index",
+    "van-tabs": "miniprogram_npm/@vant/weapp/tabs/index",
+    "van-image": "miniprogram_npm/@vant/weapp/image/index",
+    "van-button":"miniprogram_npm/@vant/weapp/button/index",
+    "van-skeleton": "miniprogram_npm/@vant/weapp/skeleton/index"
   },
   "sitemapLocation": "sitemap.json"
 }

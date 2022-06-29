@@ -1,0 +1,35 @@
+<!-- 我的页面 -->
+<view class="my_container">
+  <!-- 头像 -->
+  <view class="head_container">
+    <view class="avatar_container">
+      <van-image image-class="avatar" round width="6rem" height="6rem" src="{{userInfo.avatar}}" />
+    </view>
+    <!-- 昵称 -->
+    <p class="nickName">{{userInfo.name?userInfo.name:"用户未登录"}}</p>
+    <!-- 登录按钮 -->
+    <view class="button_container">
+      <van-button color="#368560" wx:if="{{userInfo==null}}" bindtap="login" round type="info">点击登录</van-button>
+      <van-button color="#368560" wx:if="{{userInfo != null}}" bindtap="loginOut" round type="info">退出登录</van-button>
+    </view>
+  </view>
+  <!-- 选项 -->
+  <view class="optin_container">
+    <van-cell-group custom-class="van_cell_group" inset>
+      <!-- 浏览历史 -->
+      <van-cell title-class="title" size="large" icon="https://636c-cloud1-5g1in4pge4a7a57e-1310462165.tcb.qcloud.la/icons/histories.png?sign=70958d534f441ea835e545df6e982661&t=1656394392" title="浏览历史" is-link link-type="navigateTo" url="../history/history">
+      </van-cell>
+      <!-- 用户反馈 -->
+      <van-cell title-class="title" size="large" icon="https://636c-cloud1-5g1in4pge4a7a57e-1310462165.tcb.qcloud.la/icons/feedback.png?sign=87b191d557f87ab671bac9bb0f6b0f18&t=1656396232" value-class="right" title="用户反馈" is-link>
+        <button class="info_button" open-type="contact"></button>
+      </van-cell>
+    </van-cell-group>
+    <van-cell-group custom-class="van_cell_group" inset>
+      <!-- 分享 -->
+      <van-cell title-class="title" size="large" icon="https://636c-cloud1-5g1in4pge4a7a57e-1310462165.tcb.qcloud.la/icons/share.png?sign=823821ae6d88e0bb5bfd905a74d345db&t=1656396425" title="分享" is-link>
+        <button class="info_button" open-type="share" />
+      </van-cell>
+    </van-cell-group>
+
+  </view>
+</view>

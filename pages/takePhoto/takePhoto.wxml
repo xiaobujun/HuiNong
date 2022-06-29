@@ -1,3 +1,4 @@
+<!-- 拍摄页面 -->
 <view class="camera_container">
   <!-- 相机组件 -->
   <camera class="camera" device-position="back" binderror="error" style='width:{{width}}px;height:{{height-140}}px;'></camera>
@@ -11,7 +12,6 @@
     <!-- 拍照 -->
     <view class="circle" bindtap="takePhoto">
       <image class="camera_icon" src="../icons/camera_white.png" />
-      
     </view>
   </view>
 </view>

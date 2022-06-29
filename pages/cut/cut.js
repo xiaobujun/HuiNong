@@ -15,71 +15,59 @@ Page({
     isFocus: false,
     cropMap: [
       {
-        cropId: 0, // 图标id
-        cropIcon: "../icons/虫害.png",
+        cropId: 0, 
+        cropIcon: "../icons/crop/pest.png",
         cropName: "虫害",
         name: "pestis"
       },
       {
         cropId: 1,
-        cropIcon: "../icons/番茄.png",
-        cropName: "番茄",
-        name: "tomato"
+        cropIcon: "../icons/crop/rice.png",
+        cropName: "水稻",
+        name: "rice"
       },
       {
         cropId: 2,
-        cropIcon: "../icons/草莓.png",
-        cropName: "草莓",
-        name: "strawberry"
+        cropIcon: "../icons/crop/wheat.png",
+        cropName: "小麦",
+        name: "wheat"
       },{
-        cropId: 3, // 图标id
-        cropIcon: "../icons/豆角.png",
-        cropName: "豆角",
+        cropId: 3, 
+        cropIcon: "../icons/crop/maize.png",
+        cropName: "玉米",
 
       },
       {
         cropId: 4,
-        cropIcon: "../icons/白菜.png",
-        cropName: "白菜",
+        cropIcon: "../icons/crop/pepper.png",
+        cropName: "辣椒",
         name: "tomato"
       },
       {
         cropId: 5,
-        cropIcon: "../icons/玉米.png",
-        cropName: "玉米",
-        name: "strawberry"
+        cropIcon: "../icons/crop/eggplant.png",
+        cropName: "茄子",
+        name: "eggplant"
       },{
-        cropId: 6, // 图标id
-        cropIcon: "../icons/大蒜.png",
-        cropName: "大蒜",
+        cropId: 6, 
+        cropIcon: "../icons/crop/tomato.png",
+        cropName: "西红柿",
       },
       {
         cropId: 7,
-        cropIcon: "../icons/茄子.png",
-        cropName: "茄子",
-        name: "tomato"
+        cropIcon: "../icons/crop/garlic.png",
+        cropName: "大蒜",
+        name: "gralic"
       },
       {
         cropId: 8,
-      cropIcon: "../icons/南瓜.png",
-        cropName: "南瓜",
-        name: "strawberry"
+      cropIcon: "../icons/crop/radish.png",
+        cropName: "胡萝卜",
+        name: "radish"
       },{
-        cropId: 9, // 图标id
-        cropIcon: "../icons/辣椒.png",
-        cropName: "辣椒",
-      },
-      {
-        cropId: 10,
-        cropIcon: "../icons/萝卜.png",
-        cropName: "萝卜",
-        name: "tomato"
-      },
-      {
-        cropId: 11,
-        cropIcon: "../icons/番薯.png",
-        cropName: "番薯",
-        name: "strawberry"
+        cropId: 9,
+        cropIcon: "../icons/crop/pumpkin.png",
+        cropName: "南瓜",
       }
     ]
   },
@@ -126,7 +114,6 @@ Page({
 
   //弹框动画
   showModal: async function () {
-   
     await this.cropper.getImg((obj) => {
       app.globalData.imgSrc = obj.url;
       console.log(app.globalData.imgSrc)

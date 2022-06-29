@@ -1,7 +1,7 @@
 /*
  * @Author: Asuka
  * @Date: 2022-06-10 22:59:49
- * @LastEditTime: 2022-06-19 02:42:25
+ * @LastEditTime: 2022-06-29 15:47:59
  */
 
 import { History } from "../../common/dao/discuss/History/History";
@@ -13,76 +13,53 @@ Page({
    */
   data: {
     History: [], // 历史记录
-    HistoryAnswer: [], // 回答记录
   },
 
   onLoad(options) {
     let app = getApp();
-    let discussionHistory = app.globalData.userInfo.discussionHistory; // 获取用户查询记录
-    let answerHistory = app.globalData.userInfo.answerHistory;
-    this.history(discussionHistory, this);
-    this.history(answerHistory, this, "discussionAnswer");
+    let informationHistory = app.globalData.userInfo.informationHistory; // 获取用户查询记录
+    this.addHistory(informationHistory);
   },
 
-  // 查看讨论历史
-  /**
-   * @description:
-   * @param {array} h // 历史记录 _id
-   * @param {this} e // this
-   * @param {string} db_name // 数据库名称
-   * @return {*}
-   */
-  history: async (h, e, db_name = "discussion") => {
-    let that = e;
-    let discussionHistory = Array();
-    console.log("h==>", h, db_name);
+  async addHistory(h) {
+    let that = this;
+    let arr = new Array();
+    let db = wx.cloud.database();
     for (let i = 0; i < h.length; i++) {
-      let tt = await History(h[i], db_name);
-      discussionHistory.push(tt);
+      let xx = await that.getInformation(db, h[i]);
+       arr.push(xx)
+       console.log(arr)
     }
-
-    if (db_name === "discussion") {
-      that.setData({
-        History: discussionHistory,
-      });
-    } else if (db_name === "discussionAnswer") {
-      console.log("answerHistory", discussionHistory);
-      that.setData({
-        HistoryAnswer: discussionHistory,
-      });
-    }
+    this.setData({
+      History: arr
+    })
   },
 
-  // 查看详情页面
-  GoDetail:async (e) => {
-    let _id = e.target.dataset._id; // 详情页面 _id
-    let answer = e.target.dataset.answer;
-    console.log(answer);
-    console.log(_id);
-    if (answer === "true") {
-      _id = await AnswerToDiscuss(_id)
-    }
-    console.log("_______id",_id)
+  async getInformation(db, id) {
+    return new Promise(resolve => { 
+      db.collection("information")
+      .doc(id)
+      .get({
+        success: function (res) {
+          resolve(res)    
+        },
+        fail: function (res) { console.log(res) }
+      })
+    })
+    .then(res => {
+      return res.data;
+    })
+  },
+
+  toDetail(event) {
+    let src = event.currentTarget.dataset.src; // 网站链接
     wx.navigateTo({
-      url: "../discussionDetails/discussionDetails",
+      url: "../pageDetail/index",
       success: (res) => {
-        res.eventChannel.emit("discuss", {
-          _id: _id,
+        res.eventChannel.emit("src", {
+          src: src,
         });
       },
-    });
-  },
-
-  // 页面切换
-  changeItem: function (e) {
-    this.setData({
-      item: e.target.dataset.item,
-    });
-  },
-  // tab切换
-  changeTab: function (e) {
-    this.setData({
-      tab: e.detail.current,
     });
   },
 });

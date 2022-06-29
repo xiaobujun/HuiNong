@@ -13,7 +13,7 @@ App({
 
 
     // 获取用户的openid
-    await wx.cloud.callFunction({
+    wx.cloud.callFunction({
       name:'getOpenId',
       success(res){
         console.log('小程序一加载即获取用户的openid',res)
