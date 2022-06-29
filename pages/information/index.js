@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * @Author: Asuka
  * @Date: 2022-06-29 10:30:15
@@ -35,19 +36,55 @@ Page({
       });
   },
 
+=======
+
+Page({
+  data: {
+    active: 0,
+    agriculture:[],  // 农科知识
+    policy:[]       // 农业政策
+  },
+
+  onLoad(){
+    var that = this;
+    wx.cloud.database().collection('information').get({
+      success:res=>{
+        that.setData({
+          agriculture:res.data,
+        })
+      }
+    })
+    wx.cloud.database().collection('policy').get({
+      success:res=>{
+        that.setData({
+          policy:res.data,
+        })  
+      }
+    })
+  },
+
+
+>>>>>>> 9fd74221ccf27ff93225c53326f27974977d2df7
   /**
    * @description: 文章详情页面
    * @return {*}
    */
   toDetail(event) {
+<<<<<<< HEAD
     let that = this;
     let src = event.currentTarget.dataset.src; // 网站链接
+=======
+    let src = event.currentTarget.dataset.src
+
+    console.log(src)
+>>>>>>> 9fd74221ccf27ff93225c53326f27974977d2df7
     wx.navigateTo({
       url: "../pageDetail/index",
       success: (res) => {
         res.eventChannel.emit("src", {
           src: src,
         });
+<<<<<<< HEAD
         let id = app.globalData.userInfo._id; // 用户id
         let iid = event.currentTarget.dataset.iid; // 资讯id
         that.addHistory(id, iid);
@@ -78,3 +115,9 @@ Page({
       });
   },
 });
+=======
+      },
+    });
+  }
+})
+>>>>>>> 9fd74221ccf27ff93225c53326f27974977d2df7
