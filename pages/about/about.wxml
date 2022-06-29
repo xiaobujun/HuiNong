@@ -9,8 +9,8 @@
   <button wx:if="{{userInfo==null}}" bindtap="login">登录</button>
   <button wx:if="{{userInfo != null}}" bindtap="loginOut">退出登录</button>
 </view>
-<!-- 设置部分 -->
-<view class="setting_container">
+<!-- 其他选项 -->
+<view class="menuItem">
   <block wx:for="{{about}}" wx:key="index">
     <view data-index="{{index}}" bindtap="skip" class="setting_options">
       <image src="{{item.icon}}"></image>

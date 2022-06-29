@@ -1,37 +1,58 @@
-<view>
-    <van-tabs active="{{ active }}" color="#59C291">
-        <!-- 新闻模块 -->
-        <van-tab title="文章">
-            <!-- 文章显示 -->
-            <scroll-view scroll-y="true">
-                <!-- 文章card -->
-                <block wx:for="{{pages}}" wx:key="index" >
-                    <van-card
-                        desc-class = "van-multi-ellipsis--l3"
-                        desc="{{item.desc}}"
-                        title="{{item.title}}"
-                        thumb="{{item.thumb}}"
-                        data-src = "{{item.src}}"
-                        bindtap = "toDetail"
-                    />
-                </block>
-            </scroll-view>
-        </van-tab>
+<!-- 资讯页面 -->
+<view class="information_container">
+  <van-tabs active="{{ active }}" color="#59C291">
+    <!-- 农科知识 -->
+    <van-tab title="农科知识">
+      <scroll-view scroll-y="true" style="height: 100%;">
+        <block wx:for="{{agriculture}}" wx:for-item="agriculture" wx:key="index">
+          <view class="card">
+            <!-- 图片 -->
+            <view class="card_image">
+              <van-image width="100%" height="100%" fit="fill" src="{{agriculture.image}}" />
+            </view>
+            <!-- 内容 -->
+            <view class="card_content">
+            <!-- 骨架 -->
+              <van-skeleton title row="4" animate="true" loading="{{agriculture?false:true}}">
+                <!-- 标题 -->
+                <view class="card_title selected">{{agriculture.title}}</view>
+                <!-- 简述 -->
+                <view class="card_desc selected">{{agriculture.description}}</view>
+                <!-- 来源 -->
+                <view class="source">来源：{{agriculture.source}}</view>
+              </van-skeleton>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </van-tab>
 
-        <!-- 种植技巧模块 -->
-        <van-tab title="视频">
-            <scroll-view scroll-y="true">
-                <block wx:for="{{videos}}" wx:key="index" >
-                    <van-card
-                        desc-class = "van-multi-ellipsis--l3"
-                        desc="{{item.desc}}"
-                        title="{{item.title}}"
-                        thumb="{{item.thumb}}"
-                        data-src = "{{item.src}}"
-                        bindtap = "toDetail"
-                    />
-                </block> 
-            </scroll-view>
-        </van-tab>
-    </van-tabs>
+    <!-- 农业政策 -->
+    <van-tab title="农业政策">
+      <scroll-view scroll-y="true" style="height: 100%;">
+        <block wx:for="{{policy}}" wx:for-item="policy" wx:key="index">
+          <view class="card">
+            <!-- 图片 -->
+            <view class="card_image">
+              <van-image width="100%" height="100%" fit="fill" src="{{policy.image}}" />
+            </view>
+            <!-- 内容 -->
+            <view class="card_content">
+            <!-- 骨架 -->
+              <van-skeleton title row="4" animate="true" loading="{{policy?false:true}}">
+                <!-- 标题 -->
+                <view class="card_title">{{policy.title}}</view>
+                <!-- 简述 -->
+                <view class="card_desc">
+                <view>{{policy.description}}</view>
+                </view>
+                <!-- 来源 -->
+                <view class="source">来源：{{policy.source}}</view>
+              </van-skeleton>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </van-tab>
+  </van-tabs>
 </view>

@@ -1,9 +1,3 @@
 {
-  "navigationBarTitleText": "资讯",
-  "usingComponents": {
-    "van-tab": "../../miniprogram_npm/@vant/weapp/tab/index",
-    "van-tabs": "../../miniprogram_npm/@vant/weapp/tabs/index",
-    "van-card": "../../miniprogram_npm/@vant/weapp/card/index"
-  }
-  
+  "navigationBarTitleText": "资讯"
 }

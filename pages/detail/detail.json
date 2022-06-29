@@ -1,7 +1,3 @@
 {
-  "navigationBarTitleText": "识别详情",
-  "disableScroll": true,
-  "navigationBarBackgroundColor": "#292929",
-  "navigationBarTextStyle": "white",
-  "backgroundColor": "#292929"
+  "navigationBarTitleText": "识别详情"
 }
