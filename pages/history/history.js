@@ -1,26 +1,32 @@
-/*
- * @Author: Asuka
- * @Date: 2022-06-10 22:59:49
- * @LastEditTime: 2022-06-29 15:47:59
- */
 
-import { History } from "../../common/dao/discuss/History/History";
-import { _addLike } from "../../common/dao/discuss/LikeOnDiscuss/AddLike";
-import { AnswerToDiscuss } from "../../common/dao/discuss/AnswerToDiscuss/AnswerToDiscuss";
 Page({
-  /**
-   * 页面的初始数据
-   */
+
   data: {
-    History: [], // 历史记录
+    History: [],          // 历史记录
+    informationHistory:[] // 文章id
   },
-
-  onLoad(options) {
+  /**
+   * 从用户表中获取文章id 
+   */
+  onShow(options) {
     let app = getApp();
-    let informationHistory = app.globalData.userInfo.informationHistory; // 获取用户查询记录
-    this.addHistory(informationHistory);
+    wx.cloud.database().collection('user').where({
+      _openid:app.globalData.openid
+    })
+    .get({
+      success:res=>{
+        console.log('拿来把你',res.data[0].informationHistory)
+        this.setData({
+          informationHistory:res.data[0].informationHistory
+        })
+        let inforHistory = this.data.informationHistory; // 
+        this.addHistory(inforHistory);
+      }
+    })
   },
-
+  /**
+   * 将拿到的数据存储到History数组中
+   */
   async addHistory(h) {
     let that = this;
     let arr = new Array();
@@ -34,7 +40,11 @@ Page({
       History: arr
     })
   },
-
+  /**
+   * 通过文章id获取到文章的信息
+   * @param {数据库操作对象} db 
+   * @param {文章id} id 
+   */
   async getInformation(db, id) {
     return new Promise(resolve => { 
       db.collection("information")
@@ -43,14 +53,16 @@ Page({
         success: function (res) {
           resolve(res)    
         },
-        fail: function (res) { console.log(res) }
+        fail: function (res) { console.log('',res) }
       })
     })
     .then(res => {
       return res.data;
     })
   },
-
+  /**
+   * 跳转详情页
+   */
   toDetail(event) {
     let src = event.currentTarget.dataset.src; // 网站链接
     wx.navigateTo({

@@ -10,8 +10,6 @@ App({
         traceUser:true
       })
     }
-
-
     // 获取用户的openid
     wx.cloud.callFunction({
       name:'getOpenId',

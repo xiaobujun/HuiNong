@@ -6,11 +6,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
     background-image: url("https://636c-cloud1-5g1in4pge4a7a57e-1310462165.tcb.qcloud.la/icons/background.jpg?sign=03ff8bede159472d44007ab1d643a6b3&t=1656474100");
-=======
-    background-image: url("https://636c-cloud1-5g1in4pge4a7a57e-1310462165.tcb.qcloud.la/icons/background.jpg?sign=9dfd6a735821874fbc7de6198d03ba1c&t=1656413938");
->>>>>>> 9fd74221ccf27ff93225c53326f27974977d2df7
     background-repeat: no-repeat;
     background-size: 100% 100%; 
 }
@@ -26,14 +22,7 @@
   background-repeat: no-repeat;  
 }
 .camera{
-<<<<<<< HEAD
   margin-top: 35% ;
   width: 160rpx;
   height: 160rpx;
 }
-=======
-  margin-top: 20% ;
-  width: 160rpx;
-  height: 160rpx;
-}
->>>>>>> 9fd74221ccf27ff93225c53326f27974977d2df7
