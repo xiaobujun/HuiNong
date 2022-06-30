@@ -27,12 +27,5 @@
 			</scroll-view>
 		</view>
 	</view>
-	<view class="QaA">
-		<span id="qa">相关问答</span>
-		<view>
-			<image src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjI2IiBzdHlsZT0iYm9yZGVyLWNvbG9yOiByZ2JhKDAsMCwwLDApO2JvcmRlci13aWR0aDogYnB4O2JvcmRlci1zdHlsZTogdW5kZWZpbmVkIiBmaWx0ZXI9Im5vbmUiPgogICAgPHBhdGggZD0iTTE2IDhoLTJ2M2gtM3YyaDN2M2gydi0zaDN2LTJoLTN6TTIgMTJjMC0yLjc5IDEuNjQtNS4yIDQuMDEtNi4zMlYzLjUyQzIuNTIgNC43NiAwIDguMDkgMCAxMnMyLjUyIDcuMjQgNi4wMSA4LjQ4di0yLjE2QTYuOTkgNi45OSAwIDAgMSAyIDEyem0xMy05Yy00Ljk2IDAtOSA0LjA0LTkgOXM0LjA0IDkgOSA5IDktNC4wNCA5LTktNC4wNC05LTktOXptMCAxNmMtMy44NiAwLTctMy4xNC03LTdzMy4xNC03IDctNyA3IDMuMTQgNyA3LTMuMTQgNy03IDd6IiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDEpIj48L3BhdGg+CiAgPC9zdmc+" mode="aspectFill" />
-			<span id="publish">发布</span>
-		</view>
-	</view>
 </view>
 

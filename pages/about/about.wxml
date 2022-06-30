@@ -1,0 +1,21 @@
+<view class="about_container">
+  <!-- 头像 -->
+  <view class="head_portrait_container">
+    <view class="head_portrait ">
+      <image src="{{userInfo.avatar}}"></image>
+      <text>{{userInfo.name}}</text>
+    </view>
+  </view>
+  <button wx:if="{{userInfo==null}}" bindtap="login">登录</button>
+  <button wx:if="{{userInfo != null}}" bindtap="loginOut">退出登录</button>
+</view>
+<!-- 其他选项 -->
+<view class="menuItem">
+  <block wx:for="{{about}}" wx:key="index">
+    <view data-index="{{index}}" bindtap="skip" class="setting_options">
+      <image src="{{item.icon}}"></image>
+      <text>{{item.title}}</text>
+      <image src="{{item.rightIco}}"></image>
+    </view>
+  </block>
+</view>

@@ -24,7 +24,8 @@
       <text>形态特征</text>
       <text>{{info.features}}</text>
     </view>
-    <view class="content">
+    <view class="content"  wx-if="{{info.treatment == '' }}">
+
       <text>防治方法</text>
       <text>{{info.treatment}}</text>
     </view>
